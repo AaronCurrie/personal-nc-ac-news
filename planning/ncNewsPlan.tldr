@@ -2406,8 +2406,8 @@
             "parentId": "page",
             "childIndex": 169,
             "point": [
-              -163.56,
-              1168.28
+              -145.56,
+              1170.28
             ],
             "rotation": 0,
             "text": "username",
@@ -2428,8 +2428,8 @@
             "parentId": "page",
             "childIndex": 174,
             "point": [
-              -143.23,
-              1201.48
+              -147.23,
+              1209.48
             ],
             "rotation": 0,
             "text": "articles array",
@@ -2632,8 +2632,8 @@
             "parentId": "page",
             "childIndex": 186,
             "point": [
-              -158.45,
-              1435.49
+              -169.94,
+              1443.15
             ],
             "rotation": 0,
             "bend": -0.000015062393468051283,
@@ -2645,8 +2645,7 @@
                   0,
                   0
                 ],
-                "canBind": true,
-                "bindingId": "1fed1412-f52d-496e-3133-350cc2805f38"
+                "canBind": true
               },
               "end": {
                 "id": "end",
@@ -5393,18 +5392,6 @@
               0.22
             ],
             "distance": 16
-          },
-          "1fed1412-f52d-496e-3133-350cc2805f38": {
-            "id": "1fed1412-f52d-496e-3133-350cc2805f38",
-            "type": "arrow",
-            "fromId": "9281363f-30f8-43f5-0aa9-6a0821e4b499",
-            "toId": "8f32ff81-9d29-46f2-003a-df7ed10a0d5a",
-            "handleId": "start",
-            "point": [
-              0.76,
-              0.37
-            ],
-            "distance": 8
           },
           "404cc22c-f384-4031-18a0-2be7db14d50b": {
             "id": "404cc22c-f384-4031-18a0-2be7db14d50b",

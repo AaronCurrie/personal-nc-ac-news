@@ -21,13 +21,11 @@ const ArticlesDisplay = () => {
 
     if(isLoading) return <h2>Loading</h2>
     return (
-        <section >
             <ul className="flex-row display">
                 {articles.map(article => {
                     return <ArticleCard key={article.article_id} article={article}/>
                 })}
             </ul>
-        </section>
     )
 }
 
