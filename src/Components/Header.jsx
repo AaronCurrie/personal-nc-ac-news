@@ -1,9 +1,10 @@
+import { Link } from 'react-router-dom'
 
 const Header = () => {
     return (
         <header>
             <nav className="flex-row">
-                <h1>ACNC NEWS</h1>
+                <Link to='/'><h1>ACNC NEWS</h1></Link>
             </nav>
         </header>
     )
