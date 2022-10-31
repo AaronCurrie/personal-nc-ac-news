@@ -3,7 +3,7 @@ import ArticlesDisplay from './ArticlesDisplay'
 const MainPage = () => {
 
     return (
-        <main>
+        <main className='flex-col'>
             <ArticlesDisplay/>
         </main>
     )

@@ -1,3 +1,9 @@
+* {
+  padding: 10px;
+  margin: 0;
+  box-sizing: border-box;
+}
+
 .App {
   text-align: center;
 }
@@ -5,9 +11,31 @@
 .flex-col {
   display: flex;
   flex-direction: column;
+
 }
 
 .flex-row {
   display: flex;
   flex-direction: row;
+  border: 1px solid blue;
+}
+
+/*components*/
+/*containers*/
+.display {
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+/*cards*/
+.main-card {
+  width: 30%;
+  min-width: 300px;
+  max-width: 400px;
+  border: 1px solid red;
+  justify-content: space-between;
+}
+
+.card-info {
+  justify-content: space-between;
 }

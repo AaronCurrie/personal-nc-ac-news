@@ -2,7 +2,7 @@
 const Header = () => {
     return (
         <header>
-            <nav>
+            <nav className="flex-row">
                 <h1>ACNC NEWS</h1>
             </nav>
         </header>
