@@ -9,29 +9,29 @@ import { getAllArticles } from '../utils/api'
 const MainPage = ({setCurrTopic}) => {
 
     const [articles, setArticles] = useState([])
-    const [pages, setPages] = useState(0)
+    const [noOfPages, setNoOfPages] = useState(0)
     const [limit, setLimit] = useState(10)
     const [isLoading, setLoading] = useState(true)
 
     const { topic } = useParams()
+    const { pageNo } = useParams()
 
     useEffect(() => {
         setLoading(true)
         setCurrTopic(topic)
-        getAllArticles(limit, topic)
+        getAllArticles(limit, topic, pageNo)
         .then((data) => {
-            console.log(data)
             setArticles(data.articles)
-            setPages(data.NumberOfPages)
+            setNoOfPages(data.NumberOfPages)
             setLoading(false)
         })
-    }, [limit, topic])
+    }, [limit, topic, pageNo])
 
     if(isLoading) return<h2>Loading</h2>
     return (
         <main className='flex-col'>
             <ArticlesDisplay articles={articles}/>
-            <PageNav pages={pages}/>
+            <PageNav topic={topic} pageNo={pageNo} noOfPages={noOfPages}/>
         </main>
     )
 }

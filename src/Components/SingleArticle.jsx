@@ -1,8 +1,14 @@
+import { useEffect } from 'react'
+import { useParams } from 'react-router-dom'
 
-
-const SingleArticle = () => {
+const SingleArticle = ({setCurrTopic}) => {
  
-    // const {article_id} = useParams()
+    const {article_id} = useParams()
+
+    useEffect(() => {
+       setCurrTopic('none') 
+    }, [])
+    
 
     return (
         <div>

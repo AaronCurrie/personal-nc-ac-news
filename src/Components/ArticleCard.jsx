@@ -21,7 +21,7 @@ const ArticleCard = ({article}) => {
     }
 
     return (
-        <Link className="flex-col main-card" to={`/${article.article_id}`}>
+        <Link className="flex-col main-card" to={`/articles/${article.article_id}`}>
             <li className='flex-col card-inner'>
                 <img src={imageSelctor(article.topic)}/>
                 <h3>{article.title}</h3>

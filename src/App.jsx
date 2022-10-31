@@ -30,8 +30,9 @@ function App() {
       <Header topics={ topics } currTopic={currTopic}/>
         <Routes>
           <Route path='/' element ={<MainPage setTopics={setTopics} setCurrTopic={setCurrTopic}/>}/>
-          <Route path='/:topic' element={<MainPage setTopics={setTopics} setCurrTopic={setCurrTopic}/>}/>
-          <Route path='/articles/:article_id' element={<SingleArticle/>}/>
+          <Route path='/:pageNo' element ={<MainPage setTopics={setTopics} setCurrTopic={setCurrTopic}/>}/>
+          <Route path='/:topic/:pageNo' element={<MainPage setTopics={setTopics} setCurrTopic={setCurrTopic}/>}/>
+          <Route path='/articles/:article_id' element={<SingleArticle setCurrTopic={setCurrTopic}/>}/>
         </Routes>
     </div>
   );
