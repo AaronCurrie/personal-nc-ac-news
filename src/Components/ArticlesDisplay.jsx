@@ -1,6 +1,6 @@
 import { useEffect } from "react"
 import { useState } from "react"
-
+import { useParams } from 'react-router-dom'
 import { getAllArticles } from "../utils/api"
 
 import ArticleCard from "./ArticleCard"
@@ -12,6 +12,21 @@ const ArticlesDisplay = ({searchObj, setSearchObj}) => {
     const [isLoading, setLoading] = useState(true)
     const [totalArticles, setTotlaArticles] = useState(0)
 
+    const {topic} = useParams()
+
+    useEffect(() => {
+        if(topic === 'all') {
+            setSearchObj((currentObj) => {
+                return {...currentObj, topic: ''}
+            })
+        } else {
+            setSearchObj((currentObj) => {
+                return {...currentObj, topic: topic}
+            }) 
+        }
+
+    }, [topic])
+
     useEffect(() => {
         setLoading(true)
         getAllArticles(searchObj).then((data) => {
@@ -21,10 +36,16 @@ const ArticlesDisplay = ({searchObj, setSearchObj}) => {
         })
     }, [searchObj])
 
-    const handleLoadAll = () => {
-        setSearchObj((currentObj) => {
-            return {...currentObj, limit: totalArticles}
-        })
+    const handleLoadAll = (state) => {
+        if(state === 'more') {
+            setSearchObj((currentObj) => {
+                return {...currentObj, limit: totalArticles}
+            }) 
+        } else {
+            setSearchObj((currentObj) => {
+                return {...currentObj, limit: 10}
+            }) 
+        }
     }
 
     if(isLoading) return <h2>Loading</h2>
@@ -35,7 +56,8 @@ const ArticlesDisplay = ({searchObj, setSearchObj}) => {
                     return <ArticleCard key={article.article_id} article={article}/>
                 })}
             </ul>
-            <button onClick = {() => handleLoadAll()}>Load All</button>
+            <button className={articles.length < totalArticles? '' : 'hidden'} onClick = {() => handleLoadAll('more')}>Load More</button>
+            <button className={articles.length === totalArticles? '' : 'hidden'} onClick = {() => handleLoadAll('less')}>Load Less</button>
         </section>
 
     )
