@@ -4,6 +4,7 @@
   box-sizing: border-box;
 }
 
+
 .App {
   text-align: center;
 }
@@ -38,4 +39,13 @@
 
 .card-info {
   justify-content: space-between;
+}
+
+/*State Changes*/
+.active {
+  background-color: rgb(255, 97, 40);
+}
+
+.hidden { 
+  display: none;
 }

@@ -1,10 +1,18 @@
 import ArticlesDisplay from './ArticlesDisplay'
+import TopicsNav from './TopicNav'
 
-const MainPage = () => {
+import { Routes, Route} from 'react-router-dom';
+
+const MainPage = ({searchObj, setSearchObj}) => {
 
     return (
         <main className='flex-col'>
-            <ArticlesDisplay/>
+            <TopicsNav setSearchObj={setSearchObj} searchObj = {searchObj}/>
+            <Routes>
+                <Route path='/' element={ <ArticlesDisplay searchObj={searchObj} setSearchObj={setSearchObj}/> }/>
+                <Route path='/:topic' element={ <ArticlesDisplay searchObj={searchObj} setSearchObj={setSearchObj}/>}/>
+            </Routes>
+           
         </main>
     )
 }
