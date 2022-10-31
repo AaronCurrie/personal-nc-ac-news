@@ -1,7 +1,13 @@
 
+
 const SingleArticle = () => {
-    return(
-        <p>hello</p>
+ 
+    // const {article_id} = useParams()
+
+    return (
+        <div>
+
+        </div>
     )
 }
 

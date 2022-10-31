@@ -1,19 +1,7 @@
 import ArticleCard from "./ArticleCard"
 
 
-const ArticlesDisplay = ({setSearchObj, totalArticles, articles}) => {
-
-    const handleLoadAll = (state) => {
-        if(state === 'more') {
-            setSearchObj((currentObj) => {
-                return {...currentObj, limit: totalArticles}
-            }) 
-        } else {
-            setSearchObj((currentObj) => {
-                return {...currentObj, limit: 10}
-            }) 
-        }
-    }
+const ArticlesDisplay = ({articles}) => {
 
     return (
         <section>
@@ -22,8 +10,6 @@ const ArticlesDisplay = ({setSearchObj, totalArticles, articles}) => {
                     return <ArticleCard key={article.article_id} article={article}/>
                 })}
             </ul>
-            <button className={articles.length < totalArticles? '' : 'hidden'} onClick = {() => handleLoadAll('more')}>Load More</button>
-            <button className={articles.length === totalArticles? '' : 'hidden'} onClick = {() => handleLoadAll('less')}>Load Less</button>
         </section>
     )
 }

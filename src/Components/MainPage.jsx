@@ -1,52 +1,37 @@
 import ArticlesDisplay from './ArticlesDisplay'
-import TopicsNav from './TopicNav'
+import PageNav from './PageNav'
 
 import { useParams } from 'react-router-dom'
 import { useState, useEffect } from 'react'
 
-import { getAllArticles, getAllTopics } from '../utils/api'
+import { getAllArticles } from '../utils/api'
 
-
-const MainPage = () => {
-
-    const [searchObj, setSearchObj] = useState({topic:''})
+const MainPage = ({setCurrTopic}) => {
 
     const [articles, setArticles] = useState([])
+    const [pages, setPages] = useState(0)
+    const [limit, setLimit] = useState(10)
     const [isLoading, setLoading] = useState(true)
-    const [totalArticles, setTotlaArticles] = useState(0)
-    const [topics, setTopics] = useState([])
 
-    const {topic} = useParams()
-
-    useEffect(() => {
-        if(topic === 'all') {
-            setSearchObj((currentObj) => {
-                return {...currentObj, topic:''}
-            })
-        } else {
-            setSearchObj((currentObj) => {
-                return {...currentObj, topic: topic}
-            }) 
-        }
-    }, [topic])
+    const { topic } = useParams()
 
     useEffect(() => {
         setLoading(true)
-        Promise.all([getAllArticles(searchObj), getAllTopics()])
+        setCurrTopic(topic)
+        getAllArticles(limit, topic)
         .then((data) => {
-            setTopics(data[1].topics)
-            setArticles(data[0].articles)
-            setTotlaArticles(data[0].total_count)
+            console.log(data)
+            setArticles(data.articles)
+            setPages(data.NumberOfPages)
             setLoading(false)
         })
-    }, [searchObj])
+    }, [limit, topic])
 
     if(isLoading) return<h2>Loading</h2>
-    else
     return (
         <main className='flex-col'>
-            <TopicsNav topics={ topics } searchObj = {searchObj}/> 
-            <ArticlesDisplay totalArticles={totalArticles} articles={articles} setSearchObj={setSearchObj} searchObj = {searchObj}/>
+            <ArticlesDisplay articles={articles}/>
+            <PageNav pages={pages}/>
         </main>
     )
 }
