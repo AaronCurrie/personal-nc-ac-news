@@ -1,8 +1,7 @@
 import ArticlesDisplay from './ArticlesDisplay'
 import TopicsNav from './TopicNav'
 
-import { Routes, Route, useParams} from 'react-router-dom';
-import { useEffect } from 'react';
+import { Routes, Route} from 'react-router-dom';
 
 const MainPage = ({searchObj, setSearchObj}) => {
 
@@ -10,7 +9,7 @@ const MainPage = ({searchObj, setSearchObj}) => {
         <main className='flex-col'>
             <TopicsNav setSearchObj={setSearchObj} searchObj = {searchObj}/>
             <Routes>
-                <Route path='/' element={ <ArticlesDisplay searchObj={searchObj} setSearchObj={setSearchObj}/>}/>
+                <Route path='/' element={ <ArticlesDisplay searchObj={searchObj} setSearchObj={setSearchObj}/> }/>
                 <Route path='/:topic' element={ <ArticlesDisplay searchObj={searchObj} setSearchObj={setSearchObj}/>}/>
             </Routes>
            
