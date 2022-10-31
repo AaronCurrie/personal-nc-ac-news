@@ -1,10 +1,12 @@
 import ArticlesDisplay from './ArticlesDisplay'
+import TopicsNav from './TopicNav'
 
-const MainPage = () => {
+const MainPage = ({searchObj, setSearchObj}) => {
 
     return (
         <main className='flex-col'>
-            <ArticlesDisplay/>
+            <TopicsNav setSearchObj={setSearchObj} searchObj = {searchObj}/>
+            <ArticlesDisplay searchObj={searchObj} setSearchObj={setSearchObj}/>
         </main>
     )
 }
