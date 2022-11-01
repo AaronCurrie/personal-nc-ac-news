@@ -1,0 +1,62 @@
+* {
+  padding: 0px;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --main-red: rgb(255, 58, 58);
+}
+
+/*Global*/
+.App {
+  background-color: rgb(12, 12, 12);
+  color: white;
+  min-height: 100vh;
+  width: 100%;
+}
+
+main {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+a {
+  text-decoration: none;
+  color: white
+}
+
+a:focus {
+  color: white;
+}
+
+.App {
+  text-align: center;
+}
+
+.flex-col {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid black;
+}
+
+.flex-row {
+  display: flex;
+  flex-direction: row;
+  border: 1px solid blue;
+}
+
+/*single article page*/
+.single-article {
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  width: 75%;
+}
+
+/*placeholder*/
+figure img {
+  width: 50px;
+}

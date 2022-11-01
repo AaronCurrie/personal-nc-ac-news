@@ -25,10 +25,10 @@ const SingleArticle = ({setCurrTopic}) => {
     if(isLoading) return <h2>Loading</h2>
     return (
         <main>
-            <article>
+            <article className='flex-col single-article'>
                 <h2>{article.title}</h2>
                 <p>{article.body}</p>
-                <aside className='flex-col author-card'>
+                <aside className='flex-col author'>
                     <h3>Author</h3>
                     <div className='flex-row author-card'>
                         <figure>
