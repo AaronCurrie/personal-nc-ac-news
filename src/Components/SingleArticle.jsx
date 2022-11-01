@@ -8,7 +8,7 @@ import Loading from './Loading'
 import Voter from './Voter'
 
 const SingleArticle = ({setCurrTopic}) => {
- 
+
     const {article_id} = useParams()
     const [isLoading, setIsLoading] = useState(true)
     const [article, setArticle] = useState({})
@@ -17,13 +17,14 @@ const SingleArticle = ({setCurrTopic}) => {
     useEffect(() => {
         setIsLoading(true)
         setCurrTopic('none')
-        getArticleById(article_id).then(({article}) => {
+        getArticleById(article_id)
+        .then(({article}) => {
             setArticle(article)
             return getUserByUserName(article.author)
         }).then(({user}) => {
-            setAuthor(user)
+            setAuthor(user)     
             setIsLoading(false)
-        }) 
+        })
     }, [article_id])
     
     if(isLoading) return <Loading/>
@@ -31,13 +32,19 @@ const SingleArticle = ({setCurrTopic}) => {
         <main>
             <div className='img-container'>
                 <img className='main-img' src={imageSelctor(article.topic)}/>
+                <div className='title-container flex-col'>
+                    <h2>{article.title}</h2>
+                    <div className='flex-row card-info'>
+                        <Voter id={article.article_id} votes={article.votes}/>
+                        <p>{article.topic}</p>
+                    </div>
+
+                </div>
             </div>
             <article className='flex-col single-article'>
-
-                <h2>{article.title}</h2>
                 <p>{article.body}</p>
                 <div className='flex-col aside-container'>
-                    <Voter id={article.article_id} votes={article.votes}/>
+                    
                     <aside className='flex-col author'>
                         <h3>Author</h3>
                         <div className='flex-row author-card'>

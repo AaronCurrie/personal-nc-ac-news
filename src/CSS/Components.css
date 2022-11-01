@@ -79,8 +79,22 @@ nav{
 
   .img-container {
     width: 100%;
-    height: 35vh;
+    position: relative;
+    height: 85vh;
     overflow: hidden;
+    margin-bottom: 20px;;
+  }
+
+  .title-container {
+    width: 400px;
+    background-color: black;
+    color: white;
+    position: absolute;
+    z-index:5;
+    padding: 20px;
+    top: 40%;
+    left: 10%;
+    gap: 20px;
   }
 
   .aside-container {
@@ -164,9 +178,6 @@ nav{
     justify-content: flex-end;
     align-items: center;
     gap:10px;
-    position: absolute;
-    top:30px;
-    right: 0px;
   }
 
   /*button*/
@@ -212,7 +223,7 @@ nav{
   }
 
   .heart:hover {
-    transform: scale(1.2);
+    transform: scale(2);
     cursor: pointer;
   }
 
@@ -228,4 +239,14 @@ nav{
   
   .hidden { 
     display: none;
+  }
+
+  @media only screen and (max-width: 768px) {
+    .img-container{
+        height: auto;
+    }
+
+    .title-container {
+      left:0;
+    }
   }

@@ -4,7 +4,7 @@ const api = axios.create({
     baseURL: "https://ac-nc-news-server.herokuapp.com/api"
 })
 
-export function getAllArticles(limit=10, topic, page=1) {
+export function getAllArticles(limit=9, topic, page=1) {
     let path = '/articles?'
 
     limit? path += `limit=${limit}` : path += `limit=10`;
