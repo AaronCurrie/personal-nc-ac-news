@@ -20,6 +20,7 @@ const MainPage = ({setCurrTopic}) => {
 
     useEffect(() => {
         setLoading(true)
+        window.scrollTo(0, 0)
         setCurrTopic(topic)
         getAllArticles(limit, topic, p)
         .then((data) => {

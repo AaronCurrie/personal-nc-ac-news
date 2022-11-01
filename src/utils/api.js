@@ -34,6 +34,12 @@ export function getUserByUserName(username) {
     })
 }
 
+export function getArticleComments(id) {
+    return api.get(`/articles/${id}/comments`).then(({data}) => {
+        return data;
+    })
+}
+
 export function patchArticleVotes(id, upDown) {
     return api.patch(`/articles/${id}`, upDown==='up'? {"inc_votes": 1} : {"inc_votes": -1}).then(({data}) => {
         return data;

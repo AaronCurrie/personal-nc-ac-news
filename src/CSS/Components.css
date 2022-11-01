@@ -192,6 +192,11 @@ nav{
     gap:10px;
   }
 
+  /*comment card*/
+  .comment-card {
+    border: 1px red solid;
+  }
+
   /*button*/
   .vote-button {
     width: 100px;

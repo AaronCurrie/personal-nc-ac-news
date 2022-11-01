@@ -22,9 +22,8 @@ const football = [football1, football2, football3, football4, football5, footbal
 const cooking = [cooking1, cooking2, cooking3, cooking4, cooking5, cooking6]
 const coding = [coding1, coding2, coding3, coding4, coding5, coding6]
 
-export function imageSelctor(topic) {
-    const random = Math.floor(Math.random() * 6)
-    console.log(random)
+export function imageSelctor(topic, id) {
+    const random = Math.round(id % 6)
     switch (topic) {
         case 'football':
             return football[random];
