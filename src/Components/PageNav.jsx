@@ -1,8 +1,7 @@
 import { useEffect, useState } from "react"
 import { Link } from 'react-router-dom'
-import { buildSearchString } from "../utils/utils"
 
-const PageNav = ({noOfPages, p}) => {
+const PageNav = ({noOfPages, p=1}) => {
 
     const [pagesArr, setPagesArr] = useState([])
     const [isLoading, setLoading] = useState(true)

@@ -2,8 +2,7 @@ import { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 import { getArticleById, getUserByUserName } from '../utils/api'
 import { formatDate } from '../utils/utils'
-
-import { imageSelctor } from '../utils/utils'
+import { imageSelctor } from '../utils/images';
 
 import Loading from './Loading'
 import Voter from './Voter'

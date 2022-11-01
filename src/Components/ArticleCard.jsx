@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom'
-import { imageSelctor } from '../utils/utils';
+import { imageSelctor } from '../utils/images';
 
 const ArticleCard = ({article}) => {
 
