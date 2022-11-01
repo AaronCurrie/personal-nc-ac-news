@@ -3,6 +3,10 @@ import { useParams } from 'react-router-dom'
 import { getArticleById, getUserByUserName } from '../utils/api'
 import { formatDate } from '../utils/utils'
 
+import { imageSelctor } from '../utils/utils'
+
+import Loading from './Loading'
+
 const SingleArticle = ({setCurrTopic}) => {
  
     const {article_id} = useParams()
@@ -22,25 +26,27 @@ const SingleArticle = ({setCurrTopic}) => {
         }) 
     }, [article_id])
     
-    if(isLoading) return <h2>Loading</h2>
+    if(isLoading) return <Loading/>
     return (
         <main>
+            <div className='img-container'>
+                <img className='main-img' src={imageSelctor(article.topic)}/>
+            </div>
             <article className='flex-col single-article'>
+
                 <h2>{article.title}</h2>
                 <p>{article.body}</p>
                 <aside className='flex-col author'>
                     <h3>Author</h3>
                     <div className='flex-row author-card'>
                         <figure>
-                            <img src={author.avatar_url}/> 
+                            <img className='avatar' src={author.avatar_url}/> 
                         </figure>
                         <div className='card-info flex-row'>
                             <h4>{author.name}</h4>
                             <p>{formatDate(article.created_at)}</p>
                         </div>
                     </div>
-
-
                 </aside>
             </article>
         </main>
