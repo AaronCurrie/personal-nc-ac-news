@@ -6,6 +6,7 @@ const Header = ({topics, currTopic}) => {
         <header className='flex-col'>
             <nav className="flex-row">
                 <Link to='/'><h1>ACNC NEWS</h1></Link>
+                <Link to='/'><h4>Profile</h4></Link>
             </nav>
             <nav>
             <Link to='/' className={!currTopic? 'active' : ''}>All</Link>

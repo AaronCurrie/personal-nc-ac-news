@@ -21,7 +21,7 @@ a:focus {
 .flex-col {
   display: flex;
   flex-direction: column;
-
+  border: 1px solid black;
 }
 
 .flex-row {
@@ -31,6 +31,13 @@ a:focus {
 }
 
 /*components*/
+/*nav*/
+nav{
+  justify-content: space-between;
+  align-items: center;
+  border: 1px solid green;
+}
+
 /*containers*/
 .display {
   flex-wrap: wrap;
@@ -38,6 +45,7 @@ a:focus {
 }
 
 /*cards*/
+/*main card*/
 .main-card {
   width: 30%;
   min-width: 300px;
@@ -53,6 +61,14 @@ a:focus {
 
 .card-info {
   justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+/*author-card*/
+.author-card {
+  width: 100%;
+  align-items: center;
+  justify-content: space-between;
 }
 
 /*State Changes*/
@@ -62,4 +78,9 @@ a:focus {
 
 .hidden { 
   display: none;
+}
+
+/*placeholder*/
+figure img {
+  width: 50px;
 }

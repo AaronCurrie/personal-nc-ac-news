@@ -21,3 +21,15 @@ export function getAllTopics() {
         return data;
     })
 }
+
+export function getArticleById(id) {
+    return api.get(`/articles/${id}`).then(({data}) => {
+        return data;
+    })
+}
+
+export function getUserByUserName(username) {
+    return api.get(`/users/${username}`).then(({data}) => {
+        return data;
+    })
+}
