@@ -1,9 +1,18 @@
+import { Link } from 'react-router-dom'
 
-const Header = () => {
+const Header = ({topics, currTopic}) => {
+
     return (
-        <header>
+        <header className='flex-col'>
             <nav className="flex-row">
-                <h1>ACNC NEWS</h1>
+                <Link to='/'><h1>ACNC NEWS</h1></Link>
+                <Link to='/'><h4>Profile</h4></Link>
+            </nav>
+            <nav className='cat-nav'>
+            <Link to='/' className={!currTopic? 'active' : ''}>All</Link>
+                {topics.map(element => {
+                    return <Link to={`/${element.slug}/1`} key={element.slug} className={element.slug === currTopic? 'active' : ''}>{element.slug}</Link>
+                })}
             </nav>
         </header>
     )

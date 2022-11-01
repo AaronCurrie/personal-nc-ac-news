@@ -1,0 +1,110 @@
+/*components*/
+/*nav*/
+nav{
+    justify-content: space-between;
+    align-items: center;
+    border: 1px solid green;
+    padding: 10px;
+  }
+
+.cat-nav a{
+    font-weight: bold;
+    font-size: 14px;
+    text-transform: uppercase;
+    color: white;
+    padding: 20px 0px;
+    margin: 0px 20px;
+    display: inline-block;
+    position: relative;
+    opacity: 0.90;
+}
+
+.cat-nav a:hover {
+    opacity: 1;
+}
+
+.cat-nav a::before {
+    transition: 300ms;
+    height: 2px;
+    content: "";
+    position: absolute;
+    background-color: var(--main-red);
+    width: 100%;
+    bottom: 5px;
+    opacity: 0;
+}
+  
+  
+.cat-nav a:hover::before {
+    bottom: 10px;
+    opacity: 1;
+}
+  
+  /*containers*/
+  .display {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  
+  /*cards*/
+  /*main card*/
+  .main-card {
+    width: 80%;
+    min-width: 300px;
+    max-width: 400px;
+    border: 1px solid red;
+    position: relative;
+  }
+
+  .main-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .main-card-holder {
+    position: relative;
+    height: 100%;
+  }
+  
+  .card-inner {
+    justify-content: space-between;
+    width: 100%;
+    height: 12vh;
+    position: absolute;
+    padding: 10px;
+    bottom: 0px;
+    background-color: rgba(0, 0, 0, 0.85);
+  }
+  
+  .card-info {
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+  }
+
+  /*author-card*/
+.author {
+    width: 50%;
+}
+
+  .author-card {
+    width: 100%;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  /*state changes*/
+  .active {
+    text-decoration: underline;
+    text-decoration-color: var(--main-red);
+    text-underline-offset: 0.7rem;
+    text-decoration-thickness: 2.5px;
+    opacity: 1;
+    pointer-events: none;
+  }
+  
+  
+  .hidden { 
+    display: none;
+  }

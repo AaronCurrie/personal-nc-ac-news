@@ -1,18 +1,37 @@
 import ArticlesDisplay from './ArticlesDisplay'
-import TopicsNav from './TopicNav'
+import PageNav from './PageNav'
 
-import { Routes, Route} from 'react-router-dom';
+import { useParams } from 'react-router-dom'
+import { useState, useEffect } from 'react'
 
-const MainPage = ({searchObj, setSearchObj}) => {
+import { getAllArticles } from '../utils/api'
 
+const MainPage = ({setCurrTopic}) => {
+
+    const [articles, setArticles] = useState([])
+    const [noOfPages, setNoOfPages] = useState(0)
+    const [limit, setLimit] = useState(10)
+    const [isLoading, setLoading] = useState(true)
+
+    const { topic } = useParams()
+    const { pageNo } = useParams()
+
+    useEffect(() => {
+        setLoading(true)
+        setCurrTopic(topic)
+        getAllArticles(limit, topic, pageNo)
+        .then((data) => {
+            setArticles(data.articles)
+            setNoOfPages(data.NumberOfPages)
+            setLoading(false)
+        })
+    }, [limit, topic, pageNo])
+
+    if(isLoading) return<h2>Loading</h2>
     return (
         <main className='flex-col'>
-            <TopicsNav setSearchObj={setSearchObj} searchObj = {searchObj}/>
-            <Routes>
-                <Route path='/' element={ <ArticlesDisplay searchObj={searchObj} setSearchObj={setSearchObj}/> }/>
-                <Route path='/:topic' element={ <ArticlesDisplay searchObj={searchObj} setSearchObj={setSearchObj}/>}/>
-            </Routes>
-           
+            <ArticlesDisplay articles={articles}/>
+            <PageNav topic={topic} pageNo={pageNo} noOfPages={noOfPages}/>
         </main>
     )
 }
