@@ -1,24 +1,7 @@
 import { Link } from 'react-router-dom'
-
-import football from '../Images/football.jpg';
-import cooking from '../Images/cooking.jpg';
-import coding from '../Images/coding.jpg';
-import defaultImg from '../Images/default.jpg'
+import { imageSelctor } from '../utils/utils';
 
 const ArticleCard = ({article}) => {
-
-    function imageSelctor(topic) {
-        switch (topic) {
-            case 'football':
-                return football;
-            case 'coding':
-                return coding;
-            case 'cooking':
-                return cooking;
-            default:
-                return defaultImg;
-        }
-    }
 
     return (
         <Link className="flex-col main-card" to={`/articles/${article.article_id}`}>

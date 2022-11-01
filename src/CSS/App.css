@@ -25,7 +25,6 @@ main {
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 20px 10px;
 }
 
 a {
@@ -46,6 +45,10 @@ a:focus {
   display: flex;
   flex-direction: row;
 }
+/*articles page*/
+.articles {
+  padding: 20px 10px;
+}
 
 /*single article page*/
 .single-article {
@@ -55,7 +58,10 @@ a:focus {
   width: 75%;
 }
 
-/*placeholder*/
-figure img {
-  width: 50px;
+.main-img {
+  width: 100%;
+  object-fit: cover;
+  object-position: 0 -50px;
 }
+
+/*placeholder*/

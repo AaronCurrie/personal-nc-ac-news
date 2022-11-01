@@ -31,7 +31,7 @@ const MainPage = ({setCurrTopic}) => {
 
     if(isLoading) return<Loading/>
     return (
-        <main className='flex-col'>
+        <main className='flex-col articles'>
             <ArticlesDisplay articles={articles}/>
             <PageNav topic={topic} p={p} noOfPages={noOfPages}/>
         </main>
