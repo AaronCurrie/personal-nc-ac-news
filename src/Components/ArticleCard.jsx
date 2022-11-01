@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom'
-import { imageSelctor } from '../utils/utils';
+import { imageSelctor } from '../utils/images';
 
 const ArticleCard = ({article}) => {
 
@@ -9,12 +9,17 @@ const ArticleCard = ({article}) => {
                 <img src={imageSelctor(article.topic)}/>
                 <div className='card-inner flex-col'>
                     <h3>{article.title}</h3>
+    
                     <div className="flex-row card-info">
-                        <p>topic: {article.topic}</p>
                         <p>author: {article.author}</p>
-                    </div>    
-                </div>
+                        <p>{article.topic}</p>
+                    </div>
 
+                </div>
+                <div className="flex-row likes-votes">
+                    <p>	&#129293; {article.votes}</p>
+                    <p> &#128172; {article.comment_count}</p>
+                </div>   
             </li>
         </Link>
 

@@ -33,3 +33,9 @@ export function getUserByUserName(username) {
         return data;
     })
 }
+
+export function patchArticleVotes(id, upDown) {
+    return api.patch(`/articles/${id}`, upDown==='up'? {"inc_votes": 1} : {"inc_votes": -1}).then(({data}) => {
+        return data;
+    })
+}
