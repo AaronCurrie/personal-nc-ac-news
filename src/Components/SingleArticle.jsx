@@ -3,6 +3,8 @@ import { useParams } from 'react-router-dom'
 import { getArticleById, getUserByUserName } from '../utils/api'
 import { formatDate } from '../utils/utils'
 
+import Loading from './Loading'
+
 const SingleArticle = ({setCurrTopic}) => {
  
     const {article_id} = useParams()
@@ -22,7 +24,7 @@ const SingleArticle = ({setCurrTopic}) => {
         }) 
     }, [article_id])
     
-    if(isLoading) return <h2>Loading</h2>
+    if(isLoading) return <Loading/>
     return (
         <main>
             <article className='flex-col single-article'>

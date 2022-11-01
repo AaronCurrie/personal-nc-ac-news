@@ -9,6 +9,7 @@ import { getAllTopics } from './utils/api';
 import Header from './Components/Header';
 import MainPage from './Components/MainPage';
 import SingleArticle from './Components/SingleArticle';
+import Loading from './Components/Loading';
 
 function App() {
 
@@ -25,14 +26,13 @@ function App() {
     })
   }, [])
 
-  if(isLoading) return <h2>Loading</h2>
+  if(isLoading) return <Loading/>
   return (
     <div className="App">
       <Header topics={ topics } currTopic={currTopic}/>
         <Routes>
           <Route path='/' element ={<MainPage setTopics={setTopics} setCurrTopic={setCurrTopic}/>}/>
-          <Route path='/:pageNo' element ={<MainPage setTopics={setTopics} setCurrTopic={setCurrTopic}/>}/>
-          <Route path='/:topic/:pageNo' element={<MainPage setTopics={setTopics} setCurrTopic={setCurrTopic}/>}/>
+          <Route path='/:topic' element={<MainPage setTopics={setTopics} setCurrTopic={setCurrTopic}/>}/>
           <Route path='/articles/:article_id' element={<SingleArticle setCurrTopic={setCurrTopic}/>}/>
         </Routes>
     </div>

@@ -9,9 +9,9 @@ const Header = ({topics, currTopic}) => {
                 <Link to='/'><h4>Profile</h4></Link>
             </nav>
             <nav className='cat-nav'>
-            <Link to='/' className={!currTopic? 'active' : ''}>All</Link>
+            <Link to='' className={!currTopic? 'active' : ''}>All</Link>
                 {topics.map(element => {
-                    return <Link to={`/${element.slug}/1`} key={element.slug} className={element.slug === currTopic? 'active' : ''}>{element.slug}</Link>
+                    return <Link to={`/${element.slug}`} key={element.slug} className={element.slug === currTopic? 'active' : ''}>{element.slug}</Link>
                 })}
             </nav>
         </header>
