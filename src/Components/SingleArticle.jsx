@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
-import { getArticleById, getUserByUserName } from '../utils/api'
+import { getArticleById} from '../utils/api'
 import { imageSelctor } from '../utils/images';
 
 import Loading from './Loading'
@@ -18,7 +18,7 @@ const SingleArticle = ({setCurrTopic}) => {
         setIsLoading(true)
         setCurrTopic('none')
         window.scrollTo(0, 0)
-        
+
         getArticleById(article_id)
         .then(({article}) => {
             setArticle(article)

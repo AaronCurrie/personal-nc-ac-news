@@ -51,3 +51,9 @@ export function patchCommentVotes(id, upDown) {
         return data;
     })
 }
+
+export function postNewComment(id, body, username) {
+    return api.post(`/articles/${id}/comments`, {"username": username, "body": body}).then(({data}) => {
+        return data
+    })
+} 

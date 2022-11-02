@@ -1,13 +1,9 @@
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
 
 const MobileMenu = (props) => {
     const {children} = props
 
     const [isOpen, setIsOpen] = useState(false)
-
-    useEffect(() => {
-       console.log(isOpen) 
-    }, [isOpen])
 
     const handleClick = () => {
         if(isOpen === false) {
@@ -16,7 +12,6 @@ const MobileMenu = (props) => {
             setIsOpen(false)
         }
     }
-
 
     if(isOpen) return (
         <button className='menu' onClick={handleClick}>             

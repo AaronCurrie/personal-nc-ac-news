@@ -2,6 +2,7 @@ import { useEffect, useState } from "react"
 
 import Loading from './Loading'
 import Comment from './Comment'
+import AddComment from "./AddComment"
 import { getArticleComments } from "../utils/api"
 
 const CommentsSection = ({id}) => {
@@ -18,9 +19,8 @@ const CommentsSection = ({id}) => {
             setComments(data.comments)
             setTotalComments(data.total_count)
             setIsLoading(false)
-            console.log(limit)
         })
-    }, [limit])
+    }, [limit, ])
 
     const handleMoreCLick = () => { 
         setLimit(totalComments)
@@ -35,6 +35,7 @@ const CommentsSection = ({id}) => {
     if(isLoading) return <Loading/>
     return (
         <section className="comment-section flex-col">
+            <AddComment setComments={setComments} id={id}/>
             <ul className="comment-list flex-col">
               {comments.map(comment => {
                 return <Comment key={comment.comment_id} comment={ comment }/>

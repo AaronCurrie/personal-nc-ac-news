@@ -230,6 +230,7 @@ nav{
 
   /*comment card*/
   .comment-card {
+    width: 100%;
     background-color: rgb(248, 248, 248);
     padding: 20px;
     border-radius: 20px;
@@ -241,7 +242,26 @@ nav{
     justify-content: space-between;
   }
 
+  /* add comment */
+  form {
+    width: 100%;
+    align-items: center;
+    gap: 5%;
+  }
+
+  .add-comment {
+    width:80%;
+    height: fit-content;
+    border-radius: 20px;
+    padding: 20px;
+    border: none;
+    box-shadow: 0px 0px 5px 5px rgb(242, 242, 242);
+    background-color: rgb(248, 248, 248);
+  }
+
   /*button*/
+
+ 
   .load-button {
     width: 100px;
     padding: 5px;
@@ -256,6 +276,10 @@ nav{
     color: black;
     border: 2px black solid;
     cursor: pointer;
+  }
+
+  .load-button:active {
+    margin-top: 5px;
   }
 
   /*mobile menu*/
@@ -380,6 +404,9 @@ nav{
     pointer-events: none;
   }
   
+  .error {
+    border: 2px solid var(--main-red);
+  }
   
   .hidden { 
     display: none;

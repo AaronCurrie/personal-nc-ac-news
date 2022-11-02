@@ -90,6 +90,7 @@ a:focus {
 }
 
 .comment-list {
+  width:100%;
   gap: 20px;
   text-align: left;
   list-style: none;
