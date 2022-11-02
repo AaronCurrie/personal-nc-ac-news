@@ -4,7 +4,7 @@ const api = axios.create({
     baseURL: "https://ac-nc-news-server.herokuapp.com/api"
 })
 
-export function getAllArticles(limit=10, topic, page=1) {
+export function getAllArticles(limit=9, topic, page=1) {
     let path = '/articles?'
 
     limit? path += `limit=${limit}` : path += `limit=10`;
@@ -34,8 +34,20 @@ export function getUserByUserName(username) {
     })
 }
 
+export function getArticleComments(id, limit=4) {
+    return api.get(`/articles/${id}/comments?limit=${limit}`).then(({data}) => {
+        return data;
+    })
+}
+
 export function patchArticleVotes(id, upDown) {
     return api.patch(`/articles/${id}`, upDown==='up'? {"inc_votes": 1} : {"inc_votes": -1}).then(({data}) => {
+        return data;
+    })
+}
+
+export function patchCommentVotes(id, upDown) {
+    return api.patch(`/comments/${id}`, upDown==='up'? {"inc_votes": 1} : {"inc_votes": -1}).then(({data}) => {
         return data;
     })
 }

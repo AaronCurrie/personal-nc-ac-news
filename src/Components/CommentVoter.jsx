@@ -1,5 +1,5 @@
 import { useState } from "react"
-import { patchArticleVotes } from "../utils/api"
+import { patchCommentVotes } from "../utils/api"
 
 const Voter = ({votes, id}) => {
 
@@ -10,14 +10,14 @@ const Voter = ({votes, id}) => {
         if(voted === false) {
             setVotesUp((currentVotes) => currentVotes + 1) 
             setVoted(true)
-            patchArticleVotes(id, 'up').catch(err => {
+            patchCommentVotes(id, 'up').catch(err => {
                 setVotesUp((currentVotes)=> currentVotes - 1)
-                setVoted(true)
+                setVoted(false)
             })
         } else {
             setVotesUp((currentVotes) => currentVotes - 1) 
             setVoted(false)
-            patchArticleVotes(id, 'down').catch(err => {
+            patchCommentVotes(id, 'down').catch(err => {
                 setVotesUp((currentVotes)=> currentVotes + 1)
                 setVoted(true)
             })

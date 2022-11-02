@@ -2,7 +2,7 @@
 const Loading = () => {
     return (
         <main className="spinner-container">
-            <div className="loading-spinner"></div>
+            <div aria-label="Loading" className="loading-spinner"></div>
         </main>
     )
 }
