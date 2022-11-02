@@ -260,7 +260,10 @@ nav{
   }
 
   /*button*/
-
+  button:disabled {
+    opacity: 0.2;
+    pointer-events: none;
+  }
  
   .load-button {
     width: 100px;
