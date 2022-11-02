@@ -114,6 +114,8 @@ nav{
     justify-content: center;
     align-items: center;
     gap: 20px;
+    padding: 20px;
+    border-top: 2px solid lightgray;
   }
   
   /*cards*/
@@ -159,6 +161,11 @@ nav{
     padding: 0 20px;
   }
 
+  .card-info-left {
+    justify-content: flex-start;
+    text-align: left;
+  }
+
   .likes-votes {
     position: absolute;
     top: 0px;
@@ -170,19 +177,20 @@ nav{
 
   /*author-card*/
 .author {
-    width: 70%;
+    width: 100%;
     min-width: 350px;
-    max-width: 500px;
+    max-width: 400px;
 }
 
   .author-card {
     width: 100%;
     align-items: center;
-    justify-content: space-between;
+    justify-content: space-around;
+    gap: 20px;
   }
 
   .avatar {
-    width: 50px;
+    width: 40px;
   }
 
   /*vote card*/
@@ -194,11 +202,19 @@ nav{
 
   /*comment card*/
   .comment-card {
-    border: 1px red solid;
+    background-color: rgb(248, 248, 248);
+    padding: 20px;
+    border-radius: 20px;
+    box-shadow: 0px 0px 5px 5px rgb(242, 242, 242);
+    gap: 5px;
+  }
+
+  .comment-head {
+    justify-content: space-between;
   }
 
   /*button*/
-  .vote-button {
+  .load-button {
     width: 100px;
     padding: 5px;
     border-radius: none;
@@ -207,13 +223,12 @@ nav{
     border: 2px black solid;
   }
 
-  .vote-button:hover {
+  .load-button:hover {
     background-color: white;
     color: black;
     border: 2px black solid;
     cursor: pointer;
   }
-
 
   /*spinner*/
   .spinner-container {
@@ -265,5 +280,12 @@ nav{
 
     .title-container {
       left:0;
+    }
+  }
+
+  @media only screen and (max-width: 500px) {
+    .title-container {
+      position: relative;
+      width: 100%;
     }
   }
