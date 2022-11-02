@@ -22,9 +22,14 @@ const CommentsSection = ({id}) => {
         })
     }, [limit])
 
-    const handleCLick = () => { 
+    const handleMoreCLick = () => { 
         setLimit(totalComments)
         setIsClicked(true)
+    }
+
+    const handleLessCLick = () => { 
+        setLimit(2)
+        setIsClicked(false)
     }
 
     if(isLoading) return <Loading/>
@@ -35,7 +40,8 @@ const CommentsSection = ({id}) => {
                 return <Comment key={comment.comment_id} comment={ comment }/>
               })}  
             </ul>
-            <button onClick={() => handleCLick()} className={!isClicked? "load-button" : 'hidden'}>Load More</button>
+            <button onClick={() => handleMoreCLick()} className={!isClicked? "load-button" : 'hidden'}>Load More</button>
+            <button onClick={() => handleLessCLick()} className={isClicked? "load-button" : 'hidden'}>Load Less</button>
         </section>
     )
 }
