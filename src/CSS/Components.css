@@ -12,6 +12,19 @@
   }
 }
 
+@keyframes fadedown {
+  0% {
+    opacity: 0;
+    transform: translateY(-100px);
+}
+50% {
+    transform: translateY(0px);
+}
+100% {
+    opacity: 1;
+}
+}
+
 @keyframes fade {
   0% {
     opacity: 0;
@@ -58,7 +71,7 @@ nav{
   right:0;
   z-index: 9;
   background-color: rgba(0, 0, 0, 1);
-  animation: fade 0.4s;
+  animation: fadedown 0.4s;
   align-items: center;
   justify-content: center;
 }
