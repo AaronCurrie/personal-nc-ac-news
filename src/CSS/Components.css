@@ -91,7 +91,7 @@ nav{
   .img-container {
     width: 100%;
     position: relative;
-    height: 85vh;
+    height: 80vh;
     overflow: hidden;
     margin-bottom: 20px;
     animation: fade 2s;
