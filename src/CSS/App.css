@@ -84,7 +84,6 @@ a:focus {
 .comment-section {
   width: 75%;
   gap: 20px;
-  border-top: 2px solid lightgray;
   padding: 40px 0;
   align-items: center;
 }

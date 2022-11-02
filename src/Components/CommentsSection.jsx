@@ -1,9 +1,12 @@
 import { useEffect, useState } from "react"
 
+import { getArticleComments } from "../utils/api"
+
 import Loading from './Loading'
 import Comment from './Comment'
 import AddComment from "./AddComment"
-import { getArticleComments } from "../utils/api"
+import Posting from "./Posting"
+import Error from './Error'
 
 const CommentsSection = ({id}) => {
 
@@ -12,6 +15,8 @@ const CommentsSection = ({id}) => {
     const [totalComments, setTotalComments] = useState()
     const [limit, setLimit] = useState(2)
     const [isClicked, setIsClicked] = useState(false)
+    const [isPosting, setIsPosting] =useState(false)
+    const [postFailed, setPostFailed] = useState(false)
 
     useEffect(() => {
         setIsLoading(true)
@@ -20,7 +25,7 @@ const CommentsSection = ({id}) => {
             setTotalComments(data.total_count)
             setIsLoading(false)
         })
-    }, [limit, ])
+    }, [limit])
 
     const handleMoreCLick = () => { 
         setLimit(totalComments)
@@ -33,16 +38,13 @@ const CommentsSection = ({id}) => {
     }
 
     if(isLoading) return <Loading/>
+    if(postFailed) return <Error/>
     return (
         <section className="comment-section flex-col">
-            <AddComment setComments={setComments} id={id}/>
-            <ul className="comment-list flex-col">
-              {comments.map(comment => {
-                return <Comment key={comment.comment_id} comment={ comment }/>
-              })}  
-            </ul>
-            <button onClick={() => handleMoreCLick()} className={!isClicked? "load-button" : 'hidden'}>Load More</button>
-            <button onClick={() => handleLessCLick()} className={isClicked? "load-button" : 'hidden'}>Load Less</button>
+            <AddComment setPostFailed={setPostFailed} setIsPosting={setIsPosting} setComments={setComments} id={id}/>
+            {isPosting? <Posting/> : <ul className="comment-list flex-col">{comments.map(comment => {return <Comment key={comment.comment_id} comment={ comment }/>})}</ul>}
+            <button onClick={() => handleMoreCLick()} className={!isClicked && !isPosting? "load-button" : 'hidden'}>Load More</button>
+            <button onClick={() => handleLessCLick()} className={isClicked && !isPosting? "load-button" : 'hidden'}>Load Less</button>
         </section>
     )
 }

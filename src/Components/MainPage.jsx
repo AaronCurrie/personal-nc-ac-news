@@ -1,10 +1,10 @@
-import ArticlesDisplay from './ArticlesDisplay'
-import PageNav from './PageNav'
-
 import { useParams, useSearchParams } from 'react-router-dom'
 import { useState, useEffect } from 'react'
 
 import { getAllArticles } from '../utils/api'
+
+import ArticlesDisplay from './ArticlesDisplay'
+import PageNav from './PageNav'
 import Loading from './Loading'
 
 const MainPage = ({setCurrTopic}) => {
@@ -20,7 +20,6 @@ const MainPage = ({setCurrTopic}) => {
 
     useEffect(() => {
         setLoading(true)
-        window.scrollTo(0, 0)
         setCurrTopic(topic)
         getAllArticles(limit, topic, p)
         .then((data) => {

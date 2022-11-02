@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom'
+
 import MobileMenu from './MobileMenu'
 
 const Header = ({topics, currTopic}) => {

@@ -1,7 +1,8 @@
 import { useState } from 'react'
+
 import { postNewComment } from '../utils/api'
 
-const AddComment = ({id, setComments}) => {
+const AddComment = ({id, setComments, setIsPosting, setPostFailed}) => {
 
     const [newComment, setNewComment] =useState('')
     const [error, setError] = useState(false)
@@ -13,7 +14,6 @@ const AddComment = ({id, setComments}) => {
             setError(true)
         } else {
             setError(false)
-            console.log(newComment)
         }
 
     }
@@ -21,17 +21,21 @@ const AddComment = ({id, setComments}) => {
     const handleSubmit = (event) => {
         newComment === ''? setError(true) : setError(false)
         event.preventDefault()
-        if(error) {
-
-        } else {
-            setComments((currComments) => {
-                return [{author: userName, body: newComment, votes: 0, comment_id: Date.now()}, ...currComments]
-            })
-            setNewComment('')
-            postNewComment(id, newComment, userName).then(({comment}) => {   
-
-            })
-        }
+        setComments((currComments) => {
+            return [{author: userName, body: newComment, votes: 0, comment_id: Date.now()}, ...currComments]
+        })
+        setNewComment('')
+        setIsPosting(true)
+        postNewComment(id, newComment, userName).then(() => {
+            setIsPosting(false)
+            setPostFailed(false)
+        }).catch(err => {
+            setPostFailed(true)
+        })
+        //how to error handle this???
+        //create login screen
+        //remove vote from own comments
+        //add delete to own comments
     }
 
     return (

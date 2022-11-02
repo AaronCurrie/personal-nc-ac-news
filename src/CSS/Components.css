@@ -16,13 +16,22 @@
   0% {
     opacity: 0;
     transform: translateY(-100px);
-}
-50% {
+  }
+  50% {
     transform: translateY(0px);
-}
-100% {
+  }
+  100% {
     opacity: 1;
+  }
 }
+
+@keyframes bounce {
+  0% {
+    transform: translateY(0px);
+  }
+  100% {
+    transform: translateY(-10px);
+  }
 }
 
 @keyframes fade {
@@ -144,6 +153,7 @@ nav{
     gap: 20px;
     padding: 20px;
     border-top: 2px solid lightgray;
+    border-bottom: 2px solid lightgray;
   }
   
   /*cards*/
@@ -384,6 +394,59 @@ nav{
     border-top: 10px solid #383636;
     border-radius: 50%;
     animation: spinner 1.5s linear infinite;
+  }
+
+  /*Posting*/
+  .posting-container {
+    width: 100%;
+    width: 100%;
+    padding: 50px;
+    height: fit-content;
+    display: grid;
+    place-items: center;
+  }
+
+  .posting {
+    font-size: 20px;
+    font-weight: bolder;
+    align-items: baseline;
+    gap: 5px;
+  }
+
+  .ball {
+    width: 0.5rem;
+    height: 0.5rem;
+    border: 2px solid black;
+    border-radius: 50%;
+  }
+
+  .ball1 {
+    animation: bounce 0.6s 0s infinite alternate;
+  }
+  .ball2 {
+    animation: bounce 0.6s 0.2s infinite alternate;
+  }
+  .ball3 {
+    animation: bounce 0.6s 0.4s infinite alternate;
+  }
+
+  /*error*/
+  .error-container {
+    width: 50%;
+    justify-content: center;
+    align-items: center;
+    padding: 0 0 40px 0;
+    font-family: monospace;
+  }
+
+  .error-img {
+    width: 50%;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .error-img img {
+    width: 200px;
   }
 
   /*state changes*/

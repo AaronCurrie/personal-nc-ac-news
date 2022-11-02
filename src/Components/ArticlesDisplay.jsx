@@ -1,6 +1,5 @@
 import ArticleCard from "./ArticleCard"
 
-
 const ArticlesDisplay = ({articles}) => {
 
     return (
