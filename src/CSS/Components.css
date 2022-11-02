@@ -54,11 +54,11 @@
 
 /*components*/
 /*nav*/
-nav{
+nav {
     justify-content: space-between;
     align-items: center;
     padding: 20px 30px 20px 30px;
-  }
+}
 
 .page-nav a{
   color: black;
@@ -74,15 +74,19 @@ nav{
 .cat-nav {
   width: 100%;
   height: fit-content;
-  min-width: 420px;
   position: absolute;
-  top: 9.8vh;
+  top: 0;
   right:0;
   z-index: 9;
   background-color: rgba(0, 0, 0, 1);
   animation: fadedown 0.4s;
   align-items: center;
   justify-content: center;
+  padding: 12vh 0 20px 0;
+}
+
+.logo {
+  z-index: 10;
 }
 
 .cat-nav a{
@@ -296,39 +300,16 @@ nav{
   }
 
   /*mobile menu*/
-  .nav-container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    height: 62px;
-  }
-  
-  .nav-container .checkbox {
-    position: absolute;
-    display: block;
-    height: 32px;
-    width: 32px;
-    top: 20px;
-    right: 20px;
-    z-index: 15;
-    opacity: 0;
-    cursor: pointer;
-  }
-  
-  .nav-container .hamburger-lines {
-    display: block;
+  .hamburger-lines {
     height: 26px;
-    width: 32px;
-    position: absolute;
-    top: 20px;
-    right: 20px;
+    position: relative;
     z-index: 10;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
   }
   
-  .nav-container .hamburger-lines .line {
+  .hamburger-lines .line {
     display: block;
     height: 4px;
     width: 100%;
@@ -336,16 +317,16 @@ nav{
     background: white;
   }
   
-  .nav-container .hamburger-lines .line1 {
+  .hamburger-lines .line1 {
     transform-origin: 0% 0%;
     transition: transform 0.4s ease-in-out;
   }
   
-  .nav-container .hamburger-lines .line2 {
+  .hamburger-lines .line2 {
     transition: transform 0.2s ease-in-out;
   }
   
-  .nav-container .hamburger-lines .line3 {
+  .hamburger-lines .line3 {
     transform-origin: 0% 100%;
     transition: transform 0.4s ease-in-out;
   }
@@ -369,8 +350,8 @@ nav{
 
   .menu {
     border: none;
-    width: 20px;
-    height: 20px;
+    width: 32px;
+    height: 26px;
     background-color: black;
   }
 

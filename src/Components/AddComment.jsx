@@ -32,7 +32,6 @@ const AddComment = ({id, setComments, setIsPosting, setPostFailed}) => {
         }).catch(err => {
             setPostFailed(true)
         })
-        //how to error handle this???
         //create login screen
         //remove vote from own comments
         //add delete to own comments

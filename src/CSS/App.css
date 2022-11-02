@@ -27,9 +27,11 @@ header {
   width: 100%;
   top: 0;
   z-index: 10;
-  opacity: 0.90;
+  opacity: 0.95;
   position: relative;
   position: fixed;
+  height: 10vh;
+  justify-content: center;
 }
 
 main {

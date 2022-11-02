@@ -8,7 +8,7 @@ const Header = ({topics, currTopic}) => {
         <header className='flex-col'>
             <nav className="flex-row nav-container">
                 <Link to='/' className='logo'><h1>ACNC NEWS</h1></Link>
-                  <MobileMenu>
+                <MobileMenu>
                     <Link to='' className={!currTopic? 'active' : ''}>All</Link>
                     {topics.map(element => {
                         return <Link to={`/${element.slug}`} key={element.slug} className={element.slug === currTopic? 'active' : ''}>{element.slug}</Link>
