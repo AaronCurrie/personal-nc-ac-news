@@ -28,6 +28,12 @@ export function getArticleById(id) {
     })
 }
 
+export function getUsers() {
+    return api.get(`/users`).then(({data}) => {
+        return data;
+    })
+}
+
 export function getUserByUserName(username) {
     return api.get(`/users/${username}`).then(({data}) => {
         return data;
@@ -51,3 +57,9 @@ export function patchCommentVotes(id, upDown) {
         return data;
     })
 }
+
+export function postNewComment(id, body, username) {
+    return api.post(`/articles/${id}/comments`, {"username": username, "body": body}).then(({data}) => {
+        return data
+    })
+} 

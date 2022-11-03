@@ -1,13 +1,9 @@
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
 
 const MobileMenu = (props) => {
     const {children} = props
 
     const [isOpen, setIsOpen] = useState(false)
-
-    useEffect(() => {
-       console.log(isOpen) 
-    }, [isOpen])
 
     const handleClick = () => {
         if(isOpen === false) {
@@ -17,9 +13,8 @@ const MobileMenu = (props) => {
         }
     }
 
-
     if(isOpen) return (
-        <button className='menu' onClick={handleClick}>             
+        <button className='menu' aria-label='open menu' onClick={handleClick}>             
             <div  className="hamburger-lines">
                 <span className="line line1cross"></span>
                 <span className="line line2cross"></span>
@@ -29,7 +24,7 @@ const MobileMenu = (props) => {
         </button>
     )
     return (
-        <button className='menu' onClick={handleClick}>
+        <button className='menu' aria-label='close menu' onClick={handleClick}>
             <div onClick={() => handleClick()} className="hamburger-lines">
                 <span className="line line1"></span>
                 <span className="line line2"></span>

@@ -16,13 +16,22 @@
   0% {
     opacity: 0;
     transform: translateY(-100px);
-}
-50% {
+  }
+  50% {
     transform: translateY(0px);
-}
-100% {
+  }
+  100% {
     opacity: 1;
+  }
 }
+
+@keyframes bounce {
+  0% {
+    transform: translateY(0px);
+  }
+  100% {
+    transform: translateY(-10px);
+  }
 }
 
 @keyframes fade {
@@ -45,11 +54,11 @@
 
 /*components*/
 /*nav*/
-nav{
+nav {
     justify-content: space-between;
     align-items: center;
     padding: 20px 30px 20px 30px;
-  }
+}
 
 .page-nav a{
   color: black;
@@ -65,15 +74,24 @@ nav{
 .cat-nav {
   width: 100%;
   height: fit-content;
-  min-width: 420px;
   position: absolute;
-  top: 9.8vh;
+  top: 0;
   right:0;
   z-index: 9;
   background-color: rgba(0, 0, 0, 1);
   animation: fadedown 0.4s;
   align-items: center;
   justify-content: center;
+  padding: 12vh 0 20px 0;
+}
+
+.logo {
+  z-index: 10;
+  transition: 0.25s linear;
+}
+
+.logo:hover {
+  color: var(--main-red)
 }
 
 .cat-nav a{
@@ -107,6 +125,25 @@ nav{
 .cat-nav a:hover::before {
     bottom: 10px;
     opacity: 1;
+}
+
+.nav-user {
+  background-color: white;
+  border-radius: 50%;
+  border: 3px solid white;
+  width: 40px;
+  height: 40px;
+  margin-top: 5px;
+  padding: 0.1px;
+}
+
+.nav-user img {
+  width: 100%;
+}
+
+.nav-symbols {
+  align-items: center;
+  gap: 3vw;
 }
   
   /*containers*/
@@ -144,6 +181,7 @@ nav{
     gap: 20px;
     padding: 20px;
     border-top: 2px solid lightgray;
+    border-bottom: 2px solid lightgray;
   }
   
   /*cards*/
@@ -230,9 +268,9 @@ nav{
 
   /*comment card*/
   .comment-card {
+    width: 100%;
     background-color: rgb(248, 248, 248);
     padding: 20px;
-    border-radius: 20px;
     box-shadow: 0px 0px 5px 5px rgb(242, 242, 242);
     gap: 5px;
   }
@@ -241,7 +279,83 @@ nav{
     justify-content: space-between;
   }
 
+  /* add comment */
+  form {
+    width: 100%;
+    align-items: center;
+    gap: 5%;
+  }
+
+  .add-comment-container {
+    width: 100%;
+    gap: 20px;
+  }
+
+  .add-comment {
+    width:80%;
+    height: fit-content;
+    padding: 20px;
+    border: none;
+    box-shadow: 0px 0px 5px 5px rgb(242, 242, 242);
+    background-color: rgb(248, 248, 248);
+  }
+
+  /*user card*/
+  .user-card{
+    display: inline-block;
+    width: 150px;
+    height: fit-content;
+    justify-content: space-evenly;
+    align-items: center;
+    gap: 10px;
+    padding: 10px;
+    margin: 20px;
+    background-color: white;
+    box-shadow: 0px 0px 5px 5px rgb(242, 242, 242);
+  }
+
+  .user-card figure {
+    width: 100%;
+    height: 150px;
+    overflow: hidden;
+  }
+
+  .user-card figure img {
+    width:80%;
+    height: 150px;
+    object-fit: contain;
+  }
+
+  .user-card h4 {
+    margin-bottom: 20px;
+  }
+
+  .user-card:hover {
+    cursor: pointer;
+  }
+
+  /* carosels */
+  .carosel {
+    padding: 20px;
+    width: 90%;
+    justify-content: center;
+    align-items: center;
+    overflow-x: scroll;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    white-space: nowrap;
+  }
+
+  .carosel::-webkit-scrollbar {
+    display: none;
+  }
+
   /*button*/
+  button:disabled {
+    opacity: 0.2;
+    pointer-events: none;
+  }
+ 
   .load-button {
     width: 100px;
     padding: 5px;
@@ -249,6 +363,7 @@ nav{
     background-color: black;
     color: white;
     border: 2px black solid;
+    transition: 0.2s linear;
   }
 
   .load-button:hover {
@@ -258,40 +373,56 @@ nav{
     cursor: pointer;
   }
 
-  /*mobile menu*/
-  .nav-container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    height: 62px;
+  .load-button:active {
+    margin-top: 5px;
   }
-  
-  .nav-container .checkbox {
-    position: absolute;
-    display: block;
-    height: 32px;
-    width: 32px;
-    top: 20px;
-    right: 20px;
-    z-index: 15;
-    opacity: 0;
+
+  .signin {
+    border: 2px solid var(--main-red);
+    width: 100px;
+    padding: 5px;
+    color: var(--main-red);
+    transition: 0.2s linear;
+    animation: 0.2s ease-in 0s fadein;
+  }
+
+  .signin:hover {
+    background-color: var(--main-red);
+    color: white;
+    border: 2px var(--main-red) solid;
     cursor: pointer;
   }
-  
-  .nav-container .hamburger-lines {
-    display: block;
+
+  /* .signin a:active {
+    border: 2px solid var(--main-red);
+    width: 100px;
+    padding: 5px;
+    color: white;
+    background-color: var(--main-red);
+    transition: 0.2s linear;
+    transform: scale(1.1);
+  }
+
+  a:focus {
+    color: var(--main-red);
+  } */
+
+  .login {
+    align-items: center;
+    gap:10px;
+  }
+
+  /*mobile menu*/
+  .hamburger-lines {
     height: 26px;
-    width: 32px;
-    position: absolute;
-    top: 20px;
-    right: 20px;
+    position: relative;
     z-index: 10;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
   }
   
-  .nav-container .hamburger-lines .line {
+  .hamburger-lines .line {
     display: block;
     height: 4px;
     width: 100%;
@@ -299,18 +430,19 @@ nav{
     background: white;
   }
   
-  .nav-container .hamburger-lines .line1 {
+  .hamburger-lines .line1 {
     transform-origin: 0% 0%;
     transition: transform 0.4s ease-in-out;
   }
   
-  .nav-container .hamburger-lines .line2 {
+  .hamburger-lines .line2 {
     transition: transform 0.2s ease-in-out;
   }
   
-  .nav-container .hamburger-lines .line3 {
+  .hamburger-lines .line3 {
     transform-origin: 0% 100%;
-    transition: transform 0.4s ease-in-out;
+    transition: 
+    transform 0.4s ease-in-out;
   }
   
   .line1cross{
@@ -331,9 +463,9 @@ nav{
   }
 
   .menu {
-    border: none;
-    width: 20px;
-    height: 20px;
+    border: none;        
+    width: 32px;
+    height: 26px;
     background-color: black;
   }
 
@@ -359,6 +491,59 @@ nav{
     animation: spinner 1.5s linear infinite;
   }
 
+  /*Posting*/
+  .posting-container {
+    width: 100%;
+    width: 100%;
+    padding: 50px;
+    height: fit-content;
+    display: grid;
+    place-items: center;
+  }
+
+  .posting {
+    font-size: 20px;
+    font-weight: bolder;
+    align-items: baseline;
+    gap: 5px;
+  }
+
+  .ball {
+    width: 0.5rem;
+    height: 0.5rem;
+    border: 2px solid black;
+    border-radius: 50%;
+  }
+
+  .ball1 {
+    animation: bounce 0.6s 0s infinite alternate;
+  }
+  .ball2 {
+    animation: bounce 0.6s 0.2s infinite alternate;
+  }
+  .ball3 {
+    animation: bounce 0.6s 0.4s infinite alternate;
+  }
+
+  /*error*/
+  .error-container {
+    width: 50%;
+    justify-content: center;
+    align-items: center;
+    padding: 0 0 40px 0;
+    font-family: monospace;
+  }
+
+  .error-img {
+    width: 50%;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .error-img img {
+    width: 200px;
+  }
+
   /*state changes*/
   .heart {
     transition: 0.2s linear;
@@ -380,6 +565,9 @@ nav{
     pointer-events: none;
   }
   
+  .error {
+    border: 2px solid var(--main-red);
+  }
   
   .hidden { 
     display: none;

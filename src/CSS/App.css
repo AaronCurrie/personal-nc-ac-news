@@ -5,7 +5,7 @@
 }
 
 :root {
-  --main-red: rgb(255, 58, 58);
+  --main-red: rgb(255, 73, 73);
 }
 
 /*font*/
@@ -13,11 +13,17 @@ p {
   text-align: justify;
 }
 
+.thin {
+  font-weight: lighter;
+}
+
+.highlight {
+  color: var(--main-red);
+}
 
 /*Global*/
 .App {
   color: black;
-  min-height: 100vh;
   width: 100%;
   text-align: center;
 }
@@ -27,9 +33,11 @@ header {
   width: 100%;
   top: 0;
   z-index: 10;
-  opacity: 0.90;
+  opacity: 0.95;
   position: relative;
   position: fixed;
+  height: 10vh;
+  justify-content: center;
 }
 
 main {
@@ -84,18 +92,25 @@ a:focus {
 .comment-section {
   width: 75%;
   gap: 20px;
-  border-top: 2px solid lightgray;
   padding: 40px 0;
   align-items: center;
 }
 
 .comment-list {
+  width:100%;
   gap: 20px;
   text-align: left;
   list-style: none;
 }
 
-/*placeholder*/
+/* login page */
+.login-page{
+  gap: 20px;
+  height: 75vh;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+}
 
 @media only screen and (max-width: 500px) {
   .main-img {

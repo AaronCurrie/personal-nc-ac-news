@@ -1,4 +1,5 @@
 import { useState } from "react"
+
 import { patchArticleVotes } from "../utils/api"
 
 const Voter = ({votes, id}) => {
