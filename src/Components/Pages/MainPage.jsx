@@ -35,7 +35,7 @@ const MainPage = ({setCurrTopic}) => {
         <main id='mainPage' className='flex-col articles'>
             <Filter topic={topic} sort={sort_by} order={order}/>
             <ArticlesDisplay articles={articles}/>
-            <PageNav topic={topic} p={p} noOfPages={noOfPages}/>
+            <PageNav topic={topic} p={p} sort={sort_by} order={order} noOfPages={noOfPages}/>
         </main>
     )
 }
