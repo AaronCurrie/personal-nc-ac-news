@@ -37,8 +37,9 @@ const CommentsSection = ({id}) => {
         setIsClicked(false)
     }
     
-    //remove vote from own comments
+    //remove vote button from own comments
     //add delete to own comments
+
     if(isLoading) return <Loading/>
     if(postFailed) return <Error/>
     return (

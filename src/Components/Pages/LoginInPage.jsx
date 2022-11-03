@@ -24,6 +24,9 @@ const LoginPage = () => {
         })
     }, [userName])
 
+    //needs more styling
+    //fix carosel on smaller screens
+
     if(isLoading) return <Loading/>
     return (
         <main className="login-page flex-col">

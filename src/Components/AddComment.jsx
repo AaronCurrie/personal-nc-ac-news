@@ -33,8 +33,8 @@ const AddComment = ({id, setComments, setIsPosting, setPostFailed}) => {
         }).catch(err => {
             setPostFailed(true)
         })
-
     }
+    //is having a posting state a good way to a good way to handle errors?
 
     return (
         <div className='add-comment-container flex-col'>
@@ -48,7 +48,6 @@ const AddComment = ({id, setComments, setIsPosting, setPostFailed}) => {
                 <button type='submit' disabled={newComment==='' || !userName} className='load-button'>Post</button>
             </form>
         </div>
-
     )
 }
 
