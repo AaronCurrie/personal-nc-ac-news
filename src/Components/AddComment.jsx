@@ -17,7 +17,6 @@ const AddComment = ({id, setComments, setIsPosting, setPostFailed}) => {
         } else {
             setError(false)
         }
-
     }
 
     const handleSubmit = (event) => {
@@ -40,11 +39,11 @@ const AddComment = ({id, setComments, setIsPosting, setPostFailed}) => {
     return (
         <div className='add-comment-container flex-col'>
             <div className='flex-row login'>
-                {userName? <p>username: <i>{userName}</i></p> : <Link className='signin'>Log in</Link>}
+                {userName? <p>username: <i>{userName}</i></p> : <Link className='signin' to={`/user/login?from=${id}`}>Log in</Link>}
                 {newComment && !userName? <p><i>Log in to post comment</i></p> : <></> }
             </div>
 
-            <form onSubmit={(event) => handleSubmit(event)} className='flex-row'>
+            <form id='comments' onSubmit={(event) => handleSubmit(event)} className='flex-row'>
                 <textarea value={newComment} onChange={(event) => handleChange(event)} className={error?'error add-comment' : 'add-comment'} aria-label='Add new comment' id='newComment' name='newComment' rows='4' cols='50' placeholder="Add a Comment..."></textarea>
                 <button type='submit' disabled={newComment==='' || !userName} className='load-button'>Post</button>
             </form>

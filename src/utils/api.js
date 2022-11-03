@@ -28,6 +28,12 @@ export function getArticleById(id) {
     })
 }
 
+export function getUsers() {
+    return api.get(`/users`).then(({data}) => {
+        return data;
+    })
+}
+
 export function getUserByUserName(username) {
     return api.get(`/users/${username}`).then(({data}) => {
         return data;
