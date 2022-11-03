@@ -4,12 +4,14 @@ const api = axios.create({
     baseURL: "https://ac-nc-news-server.herokuapp.com/api"
 })
 
-export function getAllArticles(limit=9, topic, page=1) {
+export function getAllArticles(limit=9, topic, page=1, sort_by='created_at', order='DESC') {
     let path = '/articles?'
 
     limit? path += `limit=${limit}` : path += `limit=10`;
     page? path += `&p=${page}`: path += `&p=1`
     topic? path += `&topic=${topic}` : path += '';
+    sort_by? path += `&sort_by=${sort_by}` : path += '';
+    order? path += `&order=${order}` : path += '';
 
     return api.get(path).then(({data}) => {
         return data;
