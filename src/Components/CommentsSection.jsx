@@ -2,11 +2,11 @@ import { useEffect, useState } from "react"
 
 import { getArticleComments } from "../utils/api"
 
-import Loading from './Loading'
+import Loading from './Patterns/Loading'
 import Comment from './Comment'
 import AddComment from "./AddComment"
-import Posting from "./Posting"
-import Error from './Error'
+import Posting from "./Patterns/Posting"
+import Error from './Patterns/Error'
 
 const CommentsSection = ({id}) => {
 
@@ -36,7 +36,9 @@ const CommentsSection = ({id}) => {
         setLimit(2)
         setIsClicked(false)
     }
-
+    
+    //remove vote from own comments
+    //add delete to own comments
     if(isLoading) return <Loading/>
     if(postFailed) return <Error/>
     return (

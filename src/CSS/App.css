@@ -5,7 +5,7 @@
 }
 
 :root {
-  --main-red: rgb(255, 58, 58);
+  --main-red: rgb(255, 73, 73);
 }
 
 /*font*/
@@ -13,6 +13,13 @@ p {
   text-align: justify;
 }
 
+.thin {
+  font-weight: lighter;
+}
+
+.highlight {
+  color: var(--main-red);
+}
 
 /*Global*/
 .App {

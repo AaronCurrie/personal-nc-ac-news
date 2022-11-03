@@ -3,7 +3,7 @@ import { useEffect, useState } from 'react'
 import { formatDate } from '../utils/utils'
 import { getUserByUserName } from '../utils/api'
 
-import Loading from './Loading'
+import Loading from './Patterns/Loading'
 
 const Author = ({created_at, articleAuthor}) => {
 

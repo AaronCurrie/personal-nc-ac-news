@@ -1,13 +1,13 @@
 import { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 
-import { getArticleById} from '../utils/api'
-import { imageSelctor } from '../utils/images';
+import { getArticleById} from '../../utils/api'
+import { imageSelctor } from '../../utils/images';
 
-import Loading from './Loading'
-import ArticleVoter from './ArticleVoter'
-import CommentsSection from './CommentsSection'
-import Author from './Author'
+import Loading from '../Patterns/Loading'
+import ArticleVoter from '../ArticleVoter'
+import CommentsSection from '../CommentsSection'
+import Author from '../Author'
 
 const SingleArticle = ({setCurrTopic}) => {
 

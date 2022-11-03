@@ -87,6 +87,11 @@ nav {
 
 .logo {
   z-index: 10;
+  transition: 0.25s linear;
+}
+
+.logo:hover {
+  color: var(--main-red)
 }
 
 .cat-nav a{
@@ -247,7 +252,7 @@ nav {
     width: 100%;
     background-color: rgb(248, 248, 248);
     padding: 20px;
-    border-radius: 20px;
+    border-radius: 0px;
     box-shadow: 0px 0px 5px 5px rgb(242, 242, 242);
     gap: 5px;
   }
@@ -263,10 +268,14 @@ nav {
     gap: 5%;
   }
 
+  .add-comment-container {
+    width: 100%;
+    gap: 20px;
+  }
+
   .add-comment {
     width:80%;
     height: fit-content;
-    border-radius: 20px;
     padding: 20px;
     border: none;
     box-shadow: 0px 0px 5px 5px rgb(242, 242, 242);
@@ -286,6 +295,7 @@ nav {
     background-color: black;
     color: white;
     border: 2px black solid;
+    transition: 0.2s linear;
   }
 
   .load-button:hover {
@@ -297,6 +307,26 @@ nav {
 
   .load-button:active {
     margin-top: 5px;
+  }
+
+  .signin {
+    border: 2px solid var(--main-red);
+    width: 100px;
+    padding: 5px;
+    color: var(--main-red);
+    transition: 0.2s linear;
+  }
+
+  .signin:hover {
+    background-color: var(--main-red);
+    color: white;
+    border: 2px var(--main-red) solid;
+    cursor: pointer;
+  }
+
+  .login {
+    align-items: center;
+    gap:10px;
   }
 
   /*mobile menu*/
@@ -328,7 +358,8 @@ nav {
   
   .hamburger-lines .line3 {
     transform-origin: 0% 100%;
-    transition: transform 0.4s ease-in-out;
+    transition: 
+    transform 0.4s ease-in-out;
   }
   
   .line1cross{
@@ -349,7 +380,7 @@ nav {
   }
 
   .menu {
-    border: none;
+    border: none;        
     width: 32px;
     height: 26px;
     background-color: black;

@@ -1,11 +1,11 @@
 import { useParams, useSearchParams } from 'react-router-dom'
 import { useState, useEffect } from 'react'
 
-import { getAllArticles } from '../utils/api'
+import { getAllArticles } from '../../utils/api'
 
-import ArticlesDisplay from './ArticlesDisplay'
-import PageNav from './PageNav'
-import Loading from './Loading'
+import ArticlesDisplay from '../ArticlesDisplay'
+import PageNav from '../PageNav'
+import Loading from '../Patterns/Loading'
 
 const MainPage = ({setCurrTopic}) => {
 

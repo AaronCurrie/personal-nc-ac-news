@@ -7,16 +7,17 @@ import { Routes, Route} from 'react-router-dom';
 import { getAllTopics } from './utils/api';
 
 import Header from './Components/Header';
-import MainPage from './Components/MainPage';
-import SingleArticle from './Components/SingleArticle';
-import Loading from './Components/Loading';
+import MainPage from './Components/Pages/MainPage';
+import SingleArticle from './Components/Pages/SingleArticle';
+import Loading from './Components/Patterns/Loading';
+import { UserContext } from './Components/Contexts/UserContext';
 
 function App() {
 
   const [topics, setTopics] = useState([])
   const [currTopic, setCurrTopic] = useState('')
   const [isLoading, setIsLoading] = useState(true)
-
+  const [userName, setUserName] = useState(null)
 
   useEffect(() => {
     setIsLoading(true)
@@ -28,6 +29,7 @@ function App() {
 
   if(isLoading) return <Loading/>
   return (
+    <UserContext.Provider value={{userName, setUserName}}>
     <div className="App">
       <Header topics={ topics } currTopic={currTopic}/>
         <Routes>
@@ -36,6 +38,7 @@ function App() {
           <Route path='/articles/:article_id' element={<SingleArticle setCurrTopic={setCurrTopic}/>}/>
         </Routes>
     </div>
+    </UserContext.Provider>
   );
 }
 

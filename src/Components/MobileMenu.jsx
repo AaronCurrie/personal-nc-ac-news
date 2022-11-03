@@ -14,7 +14,7 @@ const MobileMenu = (props) => {
     }
 
     if(isOpen) return (
-        <button className='menu' onClick={handleClick}>             
+        <button className='menu' aria-label='open menu' onClick={handleClick}>             
             <div  className="hamburger-lines">
                 <span className="line line1cross"></span>
                 <span className="line line2cross"></span>
@@ -24,7 +24,7 @@ const MobileMenu = (props) => {
         </button>
     )
     return (
-        <button className='menu' onClick={handleClick}>
+        <button className='menu' aria-label='close menu' onClick={handleClick}>
             <div onClick={() => handleClick()} className="hamburger-lines">
                 <span className="line line1"></span>
                 <span className="line line2"></span>
