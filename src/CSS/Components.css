@@ -151,6 +151,7 @@ nav {
     flex-wrap: wrap;
     justify-content: center;
     gap: 5px;
+    padding: 20px 10px;
   }
 
   .img-container {
@@ -392,20 +393,6 @@ nav {
     border: 2px var(--main-red) solid;
     cursor: pointer;
   }
-
-  /* .signin a:active {
-    border: 2px solid var(--main-red);
-    width: 100px;
-    padding: 5px;
-    color: white;
-    background-color: var(--main-red);
-    transition: 0.2s linear;
-    transform: scale(1.1);
-  }
-
-  a:focus {
-    color: var(--main-red);
-  } */
 
   .login {
     align-items: center;

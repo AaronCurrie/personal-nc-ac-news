@@ -68,10 +68,6 @@ a:focus {
   display: flex;
   flex-direction: row;
 }
-/*articles page*/
-.articles {
-  padding: 20px 10px;
-}
 
 /*single article page*/
 .single-article {

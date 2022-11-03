@@ -1,5 +1,6 @@
 import './CSS/App.css';
 import './CSS/Components.css'
+import './CSS/Hero.css'
 
 import { useState, useEffect } from 'react'
 import { Routes, Route} from 'react-router-dom';
@@ -13,6 +14,7 @@ import SingleArticle from './Components/Pages/SingleArticle';
 import Loading from './Components/Patterns/Loading';
 import ProfilePage from './Components/Pages/ProfilePage';
 import LoginPage from './Components/Pages/LoginInPage';
+import Hero from './Components/Hero/Hero'
 
 function App() {
 
@@ -46,7 +48,7 @@ function App() {
     <div className="App">
       <Header topics={ topics } userInfo = {userInfo} currTopic={currTopic}/>
         <Routes>
-          <Route path='/' element ={<MainPage setTopics={setTopics} setCurrTopic={setCurrTopic}/>}/>
+          <Route path='/' element ={<><Hero/><MainPage setTopics={setTopics} setCurrTopic={setCurrTopic}/></>}/>
           <Route path='/:topic' element={<MainPage setTopics={setTopics} setCurrTopic={setCurrTopic}/>}/>
           <Route path='/articles/:article_id' element={<SingleArticle setCurrTopic={setCurrTopic}/>}/>
           <Route path='/user/login' element={<LoginPage/>}/>

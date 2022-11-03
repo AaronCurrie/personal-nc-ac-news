@@ -6,6 +6,7 @@ import { getAllArticles } from '../../utils/api'
 import ArticlesDisplay from '../ArticlesDisplay'
 import PageNav from '../PageNav'
 import Loading from '../Patterns/Loading'
+import Hero from '../Hero/Hero';
 
 const MainPage = ({setCurrTopic}) => {
 
@@ -21,7 +22,7 @@ const MainPage = ({setCurrTopic}) => {
     useEffect(() => {
         setLoading(true)
         setCurrTopic(topic)
-        getAllArticles(limit, topic, p)
+        getAllArticles(limit, topic==='all'? '' : topic , p)
         .then((data) => {
             setArticles(data.articles)
             setNoOfPages(data.NumberOfPages)
@@ -31,7 +32,7 @@ const MainPage = ({setCurrTopic}) => {
 
     if(isLoading) return<Loading/>
     return (
-        <main className='flex-col articles'>
+        <main id='mainPage' className='flex-col articles'>
             <ArticlesDisplay articles={articles}/>
             <PageNav topic={topic} p={p} noOfPages={noOfPages}/>
         </main>

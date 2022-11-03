@@ -1,0 +1,150 @@
+@keyframes fadeinright {
+    0% {
+        opacity: 0;
+        transform: translatex(-200px);
+    }
+    50% {
+        opacity: 1;
+    }
+    100% {
+        transform: translatex(0px);
+    }
+  }
+
+  
+
+.hero {
+    padding-top: 10vh;
+    width: 100%;
+    height: 100vh;
+    flex-wrap: wrap;
+    overflow: hidden;
+    position: relative;
+    background-color: black;
+}
+
+.big-picture {
+    width: 80%;
+    min-width: 500px;
+    text-align: right;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    overflow: hidden;
+    animation: fade 2s ease-in;
+}
+
+.big-picture h2 {
+    padding: 10px;
+    background-color: black;
+    color: white;
+}
+
+.headlines {
+    width: 20%;
+    height: fit-content;
+    flex-direction: column;
+    display: flex;
+    height: 100%;
+    text-align: left;
+    background-color: black;
+    color: white;
+    animation: fadeinright 2s;
+}
+
+.headline {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    height: 25%;
+    padding: 20px;
+    font-size: 14px;
+    transition: 0.2s linear;
+}
+
+.headline:hover {
+    cursor: pointer;
+    background-color: white;
+    color: black;
+} 
+
+.arrow {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 25%;  
+}
+
+.arrow:hover {
+    cursor: pointer;
+    background-color: white;
+    color: black;
+} 
+
+.arrow span {
+    font-size: 50px;
+}
+
+.hero-img {
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+
+.hero-img img{
+    object-fit: cover;
+}
+
+.hero-title {
+    max-width: 400px;
+    position: absolute;
+    top: 50%;
+    right: 5%;
+    transition: all 0.3s linear;
+    text-decoration: underline;
+}
+
+.hero-title:hover {  
+    text-decoration-color: var(--main-red);   
+}
+  
+.hero-title a:hover::before {
+    bottom: 10px;
+    opacity: 1;
+}
+
+.highlighted {
+    background-color: white;
+    color: black;
+    font-weight: bold;
+}
+
+@media only screen and (max-width: 765px) {
+    .headlines {
+        flex-direction: row;
+        width: 100%;
+        height: 30%;
+    }
+
+    .headline {
+        height: 100%;
+        width: 33%;
+    }
+
+    .arrow {
+        height: 100%;
+        width: 25%;
+    }
+
+    .big-picture {
+        width: 100%;
+        height: 70%;
+    }
+    
+    .arrow {
+        display: none;
+    }
+  }
