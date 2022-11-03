@@ -341,6 +341,39 @@ nav {
     cursor: pointer;
   }
 
+  .login-card {
+    height: 300px;
+    width: 30%;
+    background-color: white;
+    min-width: 320px;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    padding: 20px;
+    border: none;
+    box-shadow: 0px 0px 5px 5px rgb(219, 219, 219);
+  }
+
+  .login-card figure {
+    overflow: hidden;
+  }
+
+  .login-card figure img {
+    width:100%;
+    min-width: 80px;
+    object-fit: cover;
+  }
+
+  .login-form {
+    gap: 20px;
+    height: 120px;
+    align-items: flex-start;
+  }
+
+  .login-form input {
+    padding: 5px;
+  }
+
   /* profile card*/
   .profile-page {
     display: flex;
@@ -398,6 +431,7 @@ nav {
     width: 90%;
     justify-content: center;
     padding: 30px 20px 20px 20px;
+    gap: 20px;
   }
 
   .filter fieldset {
@@ -449,7 +483,7 @@ nav {
     padding: 5px;
     color: var(--main-red);
     transition: 0.2s linear;
-    animation: 0.2s ease-in 0s fadein;
+    animation: 0.2s ease-in 0s fade;
   }
 
   .signin:hover {

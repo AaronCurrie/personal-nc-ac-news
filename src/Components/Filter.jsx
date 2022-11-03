@@ -15,7 +15,8 @@ const Filter = ({sort='created_at', order='DESC', topic='all'}) => {
 	};
 
 	return (
-		<form className="filter flex-row">
+		<form className="filter flex-col">
+			<p>Displaying: {topic}</p>
 			<fieldset className="flex-row">
 				<label htmlFor="sortFilter">
 					Sort By
