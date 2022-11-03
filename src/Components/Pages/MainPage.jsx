@@ -21,7 +21,7 @@ const MainPage = ({setCurrTopic}) => {
 
     useEffect(() => {
         setLoading(true)
-        setCurrTopic(topic)
+        setCurrTopic(topic==='all'? null : topic)
         getAllArticles(limit, topic==='all'? null : topic , p, sort_by, order)
         .then((data) => {
             setArticles(data.articles)

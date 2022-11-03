@@ -318,7 +318,7 @@ nav {
     padding: 10px;
     margin: 20px;
     background-color: white;
-    box-shadow: 0px 0px 5px 5px rgb(242, 242, 242);
+    box-shadow: 0px 0px 5px 5px rgb(219, 219, 219);
   }
 
   .user-card figure {
@@ -339,6 +339,43 @@ nav {
 
   .user-card:hover {
     cursor: pointer;
+  }
+
+  /* profile card*/
+  .profile-page {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    height: 90vh;
+    padding: 20px;
+    background-color: rgb(231, 231, 231);
+  }
+
+  .profile-card {
+    width: 30%;
+    background-color: white;
+    min-width: 320px;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    padding: 20px;
+    border: none;
+    box-shadow: 0px 0px 5px 5px rgb(219, 219, 219);
+  }
+
+  .profile-card figure {
+    overflow: hidden;
+  }
+
+  .profile-card figure img {
+    width:100%;
+    min-width: 100px;
+    object-fit: cover;
+  }
+
+  .profile-info {
+    gap: 20px;
+    align-items: flex-start;
   }
 
   /* carosels */

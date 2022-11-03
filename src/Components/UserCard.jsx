@@ -13,7 +13,6 @@ const UserCard = ({user, from}) => {
         } else {
             setIsClick(false)  
         }
-        
     }
 
     const handleLogin = () => {
@@ -26,7 +25,7 @@ const UserCard = ({user, from}) => {
                     <img className='avatar' alt='user avatar' src={user.avatar_url}/> 
                 </figure>
                 <h4>{user.name}</h4>
-                {isClicked?<Link onClick={handleLogin} className='signin' to={from? `/articles/${from}` : `/user/${userName}`}>Log in</Link> : <></>}
+                {isClicked?<Link onClick={() => handleLogin()} className='signin' to={from? `/articles/${from}` : `/user/${userName}`}>Log in</Link> : <></>}
         </li>
     )
 }
