@@ -5,7 +5,6 @@ import { getArticleComments } from "../utils/api"
 import Loading from './Patterns/Loading'
 import Comment from './Comment'
 import AddComment from "./AddComment"
-import Posting from "./Patterns/Posting"
 import Error from './Patterns/Error'
 
 const CommentsSection = ({id}) => {
@@ -13,19 +12,27 @@ const CommentsSection = ({id}) => {
     const [isLoading, setIsLoading] = useState(true)
     const [comments, setComments] = useState([])
     const [totalComments, setTotalComments] = useState()
-    const [limit, setLimit] = useState(2)
+    const [limit, setLimit] = useState(4)
     const [isClicked, setIsClicked] = useState(false)
-    const [isPosting, setIsPosting] =useState(false)
     const [postFailed, setPostFailed] = useState(false)
+    const [postSuccess, setPostSuccess] = useState(false)
 
     useEffect(() => {
-        setIsLoading(true)
+        setIsLoading(true) 
         getArticleComments(id, limit).then((data) => {
             setComments(data.comments)
             setTotalComments(data.total_count)
             setIsLoading(false)
         })
-    }, [limit])
+    }, [isClicked])
+
+    useEffect(() => {
+        getArticleComments(id, limit).then((data) => {
+            setComments(data.comments)
+            setTotalComments(data.total_count)
+            setPostSuccess(false)
+        })
+    }, [postSuccess])
 
     const handleMoreCLick = () => { 
         setLimit(totalComments)
@@ -33,7 +40,7 @@ const CommentsSection = ({id}) => {
     }
 
     const handleLessCLick = () => { 
-        setLimit(2)
+        setLimit(4)
         setIsClicked(false)
     }
 
@@ -41,16 +48,14 @@ const CommentsSection = ({id}) => {
     if(postFailed) return <Error input={'posting'}/>
     return (
         <section className="comment-section flex-col">
-            <AddComment setPostFailed={setPostFailed} setIsPosting={setIsPosting} setComments={setComments} id={id}/>
-            {isPosting? 
-            <Posting/> : 
+            <AddComment setPostSuccess={setPostSuccess} setPostFailed={setPostFailed} setComments={setComments} id={id}/>
             <ul className="comment-list flex-col">
                 {comments.map(comment => {
                     return <Comment key={comment.comment_id} setComments={setComments} comment={ comment }/>}
                 )}
-            </ul>}
-            <button onClick={() => handleMoreCLick()} className={!isClicked && !isPosting? "load-button" : 'hidden'}>Load More</button>
-            <button onClick={() => handleLessCLick()} className={isClicked && !isPosting? "load-button" : 'hidden'}>Load Less</button>
+            </ul>
+            <button onClick={() => handleMoreCLick()} className={!isClicked? "load-button" : 'hidden'}>Load More</button>
+            <button onClick={() => handleLessCLick()} className={isClicked? "load-button" : 'hidden'}>Load Less</button>
         </section>
     )
 }

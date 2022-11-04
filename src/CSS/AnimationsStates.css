@@ -72,8 +72,7 @@
   /*Posting*/
   .posting-container {
     width: 100%;
-    width: 100%;
-    padding: 50px;
+    padding: 5px;
     height: fit-content;
     display: grid;
     place-items: center;

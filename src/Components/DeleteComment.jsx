@@ -19,6 +19,7 @@ const DeleteComment = ({setDeleteFailed, deleting, setDeleting, comment, setComm
             setDeleteFailed(true)
         })
     }
+    if(comment.new) return
     return (
         <button disabled={deleting===true} onClick={handleDelete} className="delete flex-row"><p>Delete Comment?</p><img src={bin} aria-label="delete button"  className="bin"/></button>
     )

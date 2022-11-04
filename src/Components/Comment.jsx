@@ -5,8 +5,7 @@ import CommentVoter from './CommentVoter'
 import DeleteComment from './DeleteComment'
 import Deleting from './Patterns/Deleting'
 import Error from './Patterns/Error'
-
-
+import Posting from './Patterns/Posting'
 
 const Comment = ({comment, setComments}) => {
     const { userName } = useContext(UserContext)
@@ -15,6 +14,7 @@ const Comment = ({comment, setComments}) => {
     const [deleteFailed, setDeleteFailed] = useState(false)
 
     if(deleteFailed) return <Error input={'deleting'}/>
+
     return (
         <li className='comment-card flex-col'>
             <div className='flex-row comment-head'>
@@ -22,6 +22,7 @@ const Comment = ({comment, setComments}) => {
             {userName === comment.author? <DeleteComment setDeleteFailed={setDeleteFailed} deleting={deleting} setDeleting={setDeleting} setComments={setComments} comment={comment} /> : <CommentVoter id={comment.comment_id} votes={comment.votes}/>}
             </div>  
             {deleting? <Deleting/> : <p>{comment.body}</p>}
+            {comment.new? <Posting/> : <></>}
         </li>
     )
 }

@@ -67,7 +67,6 @@ export function postNewComment(id, body, username) {
 } 
 
 export function deleteComment(id) {
-    console.log(id)
     return api.delete(`/comments/${id}`).then(data => {
         return data.status
     })
