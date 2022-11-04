@@ -36,7 +36,6 @@ const AddComment = ({id, setPostSuccess, setComments, setPostFailed}) => {
         })
     }
 
-
     return (
         <div className='add-comment-container flex-col'>
             <div className='flex-row login'>

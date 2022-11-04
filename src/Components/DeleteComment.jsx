@@ -1,4 +1,3 @@
-import { useState } from 'react'
 import bin from '../Images/bin.png'
 import { deleteComment } from '../utils/api'
 
