@@ -10,9 +10,8 @@ nav {
 }
 
 .page-nav {
-  animation: 0.5s ease-in 0s fadein;
   gap: 20px;
-  margin-bottom: 20px;
+  padding: 0px;
 }
 
 

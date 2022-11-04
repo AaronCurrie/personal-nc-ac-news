@@ -21,6 +21,7 @@ const MainPage = ({setCurrTopic}) => {
 
     useEffect(() => {
         setLoading(true)
+        window.scrollTo(0, 0)
         setCurrTopic(topic==='all'? null : topic)
         getAllArticles(limit, topic==='all'? null : topic , p, sort_by, order)
         .then((data) => {
@@ -33,9 +34,9 @@ const MainPage = ({setCurrTopic}) => {
     if(isLoading) return<Loading/>
     return (
         <main id='mainPage' className='flex-col articles'>
-            <Filter topic={topic} sort={sort_by} order={order}/>
-            <ArticlesDisplay articles={articles}/>
-            <PageNav topic={topic} p={p} sort={sort_by} order={order} noOfPages={noOfPages}/>
+            <Filter topic={topic} sort={sort_by} order={order} noOfPages={noOfPages} p={p}/>
+            {/* <PageNav topic={topic} p={p} sort={sort_by} order={order} noOfPages={noOfPages}/> */}
+            <ArticlesDisplay articles={articles}/>         
         </main>
     )
 }

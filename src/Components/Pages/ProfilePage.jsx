@@ -18,6 +18,7 @@ const ProfilePage = () => {
 
     useEffect(() => {
         setIsLoading(true)
+        window.scrollTo(0, 0)
         getUserByUserName(userName)
         .then(({user}) => {
             setUser(user)     

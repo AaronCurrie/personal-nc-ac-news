@@ -17,6 +17,7 @@ const PageNav = ({noOfPages, p=1, sort='created_at', order='DESC'}) => {
     if(isLoading) return
     return (
         <nav className="page-nav flex-row">
+            <p>Page:</p>
             {pagesArr.map(page => {
                 return <Link className={page == p? `active`:``} to={`?p=${page}&sort_by=${sort}&order=${order}`} key={page}>{page}</Link>
             })}
