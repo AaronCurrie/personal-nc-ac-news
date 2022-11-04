@@ -66,12 +66,18 @@
 
   .filter fieldset {
     width: 100%;
+    gap: 15px;
+    flex-wrap: wrap;
     justify-content: space-evenly;
     align-items: center;
     padding: 20px;
     border: none;
     box-shadow: 0px 0px 5px 5px rgb(242, 242, 242);
     background-color: rgb(248, 248, 248);
+  }
+
+  .filter fieldset label{
+    min-width: 150px;
   }
 
   .filter fieldset label select{

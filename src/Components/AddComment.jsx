@@ -4,7 +4,7 @@ import { UserContext } from './Contexts/UserContext'
 
 import { postNewComment } from '../utils/api'
 
-const AddComment = ({id, setComments, setIsPosting, setPostFailed}) => {
+const AddComment = ({id, setPostSuccess, setComments, setPostFailed, setErrorMsg}) => {
 
     const [newComment, setNewComment] =useState('')
     const [error, setError] = useState(false)
@@ -22,19 +22,21 @@ const AddComment = ({id, setComments, setIsPosting, setPostFailed}) => {
     const handleSubmit = (event) => {
         newComment === ''? setError(true) : setError(false)
         event.preventDefault()
+        setPostSuccess(false)
         setComments((currComments) => {
-            return [{author: userName, body: newComment, votes: 0, comment_id: Date.now()}, ...currComments]
+            return [{author: userName, body: newComment, votes: 0, comment_id: Date.now(), new:true}, ...currComments]
         })
         setNewComment('')
-        setIsPosting(true)
         postNewComment(id, newComment, userName).then(() => {
-            setIsPosting(false)
             setPostFailed(false)
+            setPostSuccess(true)
         }).catch(err => {
+            setErrorMsg({ stautus:err.response.status, msg:err.response.data.msg, mehtod:'post'})
+            console.log(err)
             setPostFailed(true)
+            setPostSuccess(false)
         })
     }
-    //is having a posting state a good way to a good way to handle errors?
 
     return (
         <div className='add-comment-container flex-col'>

@@ -5194,11 +5194,11 @@
             "parentId": "page",
             "childIndex": 262,
             "point": [
-              825.5,
+              862,
               331
             ],
             "rotation": 0,
-            "text": "TODO   \n //remove votes from my comments\n    //add delete to my comments\n    //finish add article page",
+            "text": "TODO  \n    //finish add article page\n//error handling",
             "style": {
               "color": "black",
               "size": "small",

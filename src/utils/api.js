@@ -61,7 +61,13 @@ export function patchCommentVotes(id, upDown) {
 }
 
 export function postNewComment(id, body, username) {
-    return api.post(`/articles/${id}/comments`, {"username": username, "body": body}).then(({data}) => {
+    return api.post(`/articles/${id}/comment`, {"username": username, "body": body}).then(({data}) => {
         return data
     })
 } 
+
+export function deleteComment(id) {
+    return api.delete(`/comments/${id}`).then(data => {
+        return data.status
+    })
+}

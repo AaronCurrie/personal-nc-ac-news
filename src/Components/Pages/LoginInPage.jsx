@@ -6,7 +6,6 @@ import { UserContext } from '../Contexts/UserContext'
 
 import blankuser from '../../Images/blankuser.png'
 import Loading from "../Patterns/Loading"
-import UserCard from "../UserCard"
 
 const LoginPage = () => {
 
@@ -38,7 +37,6 @@ const LoginPage = () => {
 
     const handleLogin = () => {
         if(isValidUser) {
-            console.log(enteredUsername)
             setUserName(enteredUsername)
         }
     }

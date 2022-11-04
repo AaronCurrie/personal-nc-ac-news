@@ -18,6 +18,7 @@ const ProfilePage = () => {
 
     useEffect(() => {
         setIsLoading(true)
+        window.scrollTo(0, 0)
         getUserByUserName(userName)
         .then(({user}) => {
             setUser(user)     
@@ -40,6 +41,7 @@ const ProfilePage = () => {
             // setError(false)
         }
     }
+    //still needs work
 
     const handleClick = () => {
         writeArticle? setWriteArticle(false) : setWriteArticle(true)

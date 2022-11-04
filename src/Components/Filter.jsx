@@ -1,7 +1,8 @@
 import { useState } from "react";
 import { Link } from 'react-router-dom'
+import PageNav from "./PageNav";
 
-const Filter = ({sort='created_at', order='DESC', topic='all'}) => {
+const Filter = ({sort='created_at', order='DESC', topic='all', p, noOfPages}) => {
 
     const [sortBy, setSortBy] = useState(sort)
     const [orderBy, setOrderBy] = useState(order)
@@ -48,6 +49,7 @@ const Filter = ({sort='created_at', order='DESC', topic='all'}) => {
 						<option value="DESC">Descending</option>
 					</select>
 				</label>
+				<PageNav topic={topic} p={p} sort={sort} order={order} noOfPages={noOfPages}/>
                 <Link className="load-button" to={`/${topic}?sort_by=${sortBy}&order=${orderBy}`}>Sort</Link>
 			</fieldset>
 		</form>
