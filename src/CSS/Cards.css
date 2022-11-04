@@ -168,6 +168,7 @@
 
   .profile-card {
     width: 80%;
+    flex-wrap: wrap;
     background-color: white;
     min-width: 320px;
     justify-content: center;
@@ -205,3 +206,15 @@
     animation: fade 1s;
     gap: 20px;
   }
+
+
+  @media only screen and (max-width: 650px) {
+    .profile-card .profile-info {
+      text-align: center;
+      width: 100%;
+      padding: 10px;
+      justify-content: center;
+      align-items: center;
+    }
+  }
+  
