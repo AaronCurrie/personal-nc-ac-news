@@ -5,6 +5,7 @@ import { UserContext } from "../Contexts/UserContext"
 import { getAllArticles, getUserByUserName } from "../../utils/api"
 import Loading from "../Patterns/Loading"
 import ArticlesDisplay from "../ArticlesDisplay"
+import Error from '../Patterns/PostError'
 
 const ProfilePage = () => {
 
@@ -15,6 +16,7 @@ const ProfilePage = () => {
     const [isLoading, setIsLoading] = useState(true)
     const [newArticleBody, setArticleBody] = useState('')
     const [writeArticle, setWriteArticle] = useState(false)
+    const [errorMsg, setErrorMsg] = useState(null)
 
     useEffect(() => {
         setIsLoading(true)
@@ -26,6 +28,8 @@ const ProfilePage = () => {
         }).then(({articles}) => {
             setUserArticles(articles.filter(article => article.author === userName))
             setIsLoading(false)
+        }).catch(err => {
+            setErrorMsg({ status: err.response.status, msg:err.response.data.msg, method:'getting'})
         })
     }, [])
 
@@ -48,6 +52,7 @@ const ProfilePage = () => {
         
     }
 
+    if(errorMsg) return <Error errorMsg={errorMsg}/>
     if(isLoading) return <Loading/>
     return (
         <main className="profile-page">

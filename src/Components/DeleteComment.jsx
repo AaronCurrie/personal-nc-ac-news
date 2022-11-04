@@ -1,7 +1,7 @@
 import bin from '../Images/bin.png'
 import { deleteComment } from '../utils/api'
 
-const DeleteComment = ({setDeleteFailed, deleting, setDeleting, comment, setComments}) => {
+const DeleteComment = ({setDeleteFailed, deleting, setDeleting, comment, setComments, setErrorMsg}) => {
 
     const handleDelete = () => {
         setDeleting(true)
@@ -12,8 +12,13 @@ const DeleteComment = ({setDeleteFailed, deleting, setDeleting, comment, setComm
                 })
                 setDeleting(false)
                 setDeleteFailed(false)
+            } else {
+                setErrorMsg({status: 'Failed', msg:'delete unsuccessful', method:'deleting'})
+                setDeleting(false)
+                setDeleteFailed(true)
             }
         }).catch(err => {
+            setErrorMsg({status: err.response.status, msg:err.response.data.msg, method:'deleting'})
             setDeleting(false)
             setDeleteFailed(true)
         })

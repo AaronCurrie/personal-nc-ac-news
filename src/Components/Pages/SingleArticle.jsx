@@ -8,12 +8,14 @@ import Loading from '../Patterns/Loading'
 import ArticleVoter from '../ArticleVoter'
 import CommentsSection from '../CommentsSection'
 import Author from '../Author'
+import Error from '../Patterns/PostError'
 
 const SingleArticle = ({setCurrTopic}) => {
 
     const {article_id} = useParams()
     const [isLoading, setIsLoading] = useState(true)
     const [article, setArticle] = useState({})
+    const [errorMsg, setErrorMsg] = useState(null)
 
     useEffect(() => {
         setIsLoading(true)
@@ -24,9 +26,12 @@ const SingleArticle = ({setCurrTopic}) => {
         .then(({article}) => {
             setArticle(article)
             setIsLoading(false)
+        }).catch(err => {
+            setErrorMsg({ status: err.response.status, msg:err.response.data.msg, method:'getting'})
         })
     }, [article_id])
     
+    if(errorMsg) return <Error errorMsg={errorMsg}/>
     if(isLoading) return <Loading/>
     return (
         <main>
