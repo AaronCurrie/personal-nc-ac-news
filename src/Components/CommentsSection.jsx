@@ -42,7 +42,13 @@ const CommentsSection = ({id}) => {
     return (
         <section className="comment-section flex-col">
             <AddComment setPostFailed={setPostFailed} setIsPosting={setIsPosting} setComments={setComments} id={id}/>
-            {isPosting? <Posting/> : <ul className="comment-list flex-col">{comments.map(comment => {return <Comment key={comment.comment_id} setComments={setComments} comment={ comment }/>})}</ul>}
+            {isPosting? 
+            <Posting/> : 
+            <ul className="comment-list flex-col">
+                {comments.map(comment => {
+                    return <Comment key={comment.comment_id} setComments={setComments} comment={ comment }/>}
+                )}
+            </ul>}
             <button onClick={() => handleMoreCLick()} className={!isClicked && !isPosting? "load-button" : 'hidden'}>Load More</button>
             <button onClick={() => handleLessCLick()} className={isClicked && !isPosting? "load-button" : 'hidden'}>Load Less</button>
         </section>

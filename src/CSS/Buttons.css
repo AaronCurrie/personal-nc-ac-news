@@ -66,9 +66,10 @@
   /*delete button*/
   .delete {
     border: 2px solid black;
-    width: 160px;
+    font-size: 0.8rem;
+    width: fit-content;
     gap: 5px;
-    padding: 5px;
+    padding: 3px;
     color: black;
     transition: 0.2s linear;
     animation: 0.2s ease-in 0s fade;
@@ -83,5 +84,5 @@
   }
 
   .bin {
-    width: 25px;
+    width: 20px;
   }
