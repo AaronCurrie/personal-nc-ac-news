@@ -365,9 +365,14 @@ nav {
   }
 
   .login-form {
-    gap: 20px;
-    height: 120px;
+    gap: 10px;
+    height: 140px;
     align-items: flex-start;
+  }
+
+  .login-form p {
+    text-align: left;
+    font-size: 0.8rem;
   }
 
   .login-form input {
@@ -658,6 +663,25 @@ nav {
   
   .error {
     border: 2px solid var(--main-red);
+  }
+
+  .valid {
+    border: 2px solid rgb(48, 179, 48)
+  }
+
+  .invalid {
+    color: var(--main-red);
+    pointer-events: none;
+  }
+
+  .signin-invalid {
+    pointer-events: none;
+    border: 2px solid lightgray;
+    width: 100px;
+    padding: 5px;
+    color: lightgray;
+    transition: 0.2s linear;
+    animation: 0.2s ease-in 0s fade;
   }
   
   .hidden { 

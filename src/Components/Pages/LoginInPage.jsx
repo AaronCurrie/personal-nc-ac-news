@@ -14,7 +14,9 @@ const LoginPage = () => {
     const [users, setUsers] = useState([])
     const [isLoading, setIsLoading] = useState(true)
     const [enteredUsername, setEnteredUserName] = useState('')
-    const [isValid, setIsValid] = useState(false)
+    const [enteredPassword, setEnteredPassword] = useState('')
+    const [isValidUser, setIsValidUser] = useState(true)
+    const [isValidPassword, setIsValidPassword] = useState(true)
 
     const [searchParams] = useSearchParams()
     const {from} = Object.fromEntries([...searchParams])
@@ -28,12 +30,14 @@ const LoginPage = () => {
     }, [userName])
 
     useEffect(() => {
-        const valid = users.some(user => user.username === enteredUsername)
-        valid? setIsValid(true) : setIsValid(false)
-    }, [enteredUsername])
+        const validUser = users.some(user => user.username === enteredUsername)
+        const validPassword = enteredPassword.length > 0
+        validUser? setIsValidUser(true) : setIsValidUser(false)
+        validPassword? setIsValidPassword(true) : setIsValidPassword(false)
+    }, [enteredUsername, enteredPassword])
 
     const handleLogin = () => {
-        if(isValid) {
+        if(isValidUser && isValidPassword) {
             setUserName(enteredUsername)
         }
     }
@@ -41,6 +45,10 @@ const LoginPage = () => {
     const handleUserChange = event => {
         setEnteredUserName(event.target.value)
 	};
+
+    const handlePasswordChange = event => {
+        setEnteredPassword(event.target.value)
+    }
 
     //submit pull request
     //get error handling working on this page
@@ -59,15 +67,16 @@ const LoginPage = () => {
                 <div className="profile-info flex-col">
                     <h4>LOGIN</h4>
                     <form className="login-form flex-col">
-                        <input placeholder="username" type='text' value={enteredUsername} className={isValid? '' : 'error'} onChange={handleUserChange}></input>
-                        <input placeholder="password" type='password'></input>
-                        <Link  onClick={() => handleLogin()} className={enteredUsername==='' || !isValid? 'hidden' : 'signin'} to={from? `/articles/${from}` : `/user/${userName}`}>Log in</Link>
-
+                        
+                        <input placeholder="username" type='text' value={enteredUsername} className={isValidUser? 'valid' : 'error'} onChange={handleUserChange}></input>
+                        <input placeholder="password" type='password' className={isValidPassword && isValidUser? 'valid' : 'error'} onChange={handlePasswordChange}></input>
+                        <p className={!isValidUser || !isValidPassword? 'invalid' : 'hidden'}>Invalid username or password</p>
+                        <Link  onClick={() => handleLogin()} className={!isValidPassword || !isValidUser? 'signin-invalid' : 'signin'} to={from? `/articles/${from}` : `/user/${userName}`}>Log in</Link>
                     </form>  
                 </div>
             </div>  
-            <p>try username: jessjelly</p>
-            <p>try username: tickle122</p>            
+            <p>try username: jessjelly password: password</p>
+            <p>try username: tickle122 password: 123</p>            
         </main>           
     )
 }
