@@ -37,7 +37,8 @@ const LoginPage = () => {
     }, [enteredUsername, enteredPassword])
 
     const handleLogin = () => {
-        if(isValidUser && isValidPassword) {
+        if(isValidUser) {
+            console.log(enteredUsername)
             setUserName(enteredUsername)
         }
     }
@@ -50,11 +51,7 @@ const LoginPage = () => {
         setEnteredPassword(event.target.value)
     }
 
-    //submit pull request
-    //get error handling working on this page
-    //style profile page to show your articles and stuff
-    //remove votes from my comments
-    //add delete to my comments
+
 
     if(isLoading) return <Loading/>
     return (
