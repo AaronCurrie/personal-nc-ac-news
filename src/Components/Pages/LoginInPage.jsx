@@ -37,7 +37,6 @@ const LoginPage = () => {
 
     const handleLogin = () => {
         if(isValidUser) {
-            console.log(enteredUsername)
             setUserName(enteredUsername)
         }
     }
