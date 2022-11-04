@@ -7,7 +7,7 @@ import Deleting from './Patterns/Deleting'
 import Error from './Patterns/Error'
 import Posting from './Patterns/Posting'
 
-const Comment = ({comment, setComments}) => {
+const Comment = ({comment, setComments, postFailed}) => {
     const { userName } = useContext(UserContext)
 
     const [deleting, setDeleting] = useState(false)
@@ -15,6 +15,7 @@ const Comment = ({comment, setComments}) => {
 
     if(deleteFailed) return <Error input={'deleting'}/>
 
+    if(postFailed && comment.new) return <Error input={'posting'}/>
     return (
         <li className='comment-card flex-col'>
             <div className='flex-row comment-head'>

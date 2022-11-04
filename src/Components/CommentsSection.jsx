@@ -45,13 +45,12 @@ const CommentsSection = ({id}) => {
     }
 
     if(isLoading) return <Loading/>
-    if(postFailed) return <Error input={'posting'}/>
     return (
         <section className="comment-section flex-col">
             <AddComment setPostSuccess={setPostSuccess} setPostFailed={setPostFailed} setComments={setComments} id={id}/>
             <ul className="comment-list flex-col">
                 {comments.map(comment => {
-                    return <Comment key={comment.comment_id} setComments={setComments} comment={ comment }/>}
+                    return <Comment key={comment.comment_id} postFailed={postFailed} setComments={setComments} comment={ comment }/>}
                 )}
             </ul>
             <button onClick={() => handleMoreCLick()} className={!isClicked? "load-button" : 'hidden'}>Load More</button>
