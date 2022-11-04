@@ -1,0 +1,37 @@
+{
+  "files": {
+    "main.css": "/static/css/main.ea7755db.css",
+    "main.js": "/static/js/main.6b02459e.js",
+    "static/media/headline2.jpg": "/static/media/headline2.40292ae7363b38ba0111.jpg",
+    "static/media/cooking1.jpg": "/static/media/cooking1.96ed6d2d92e815d627d4.jpg",
+    "static/media/football4.jpg": "/static/media/football4.478e94d8a099bb553393.jpg",
+    "static/media/cooking3.jpg": "/static/media/cooking3.4ee14c3701343efeede0.jpg",
+    "static/media/football5.jpg": "/static/media/football5.b375cd311e2e70dd7df7.jpg",
+    "static/media/football6.jpg": "/static/media/football6.6660cfb113b402588b4e.jpg",
+    "static/media/football1.jpg": "/static/media/football1.dec5bb6e7be30bdb05ee.jpg",
+    "static/media/headline3.jpg": "/static/media/headline3.66425fb607d3397a83a6.jpg",
+    "static/media/football3.jpg": "/static/media/football3.dc7f7b1e12cc0c9fc77c.jpg",
+    "static/media/cooking6.jpg": "/static/media/cooking6.e7ad6df85e61fe8100f9.jpg",
+    "static/media/coding4.jpg": "/static/media/coding4.b545eed435ea6a98f387.jpg",
+    "static/media/cooking4.jpg": "/static/media/cooking4.0cdda95f62a45d83c41e.jpg",
+    "static/media/default.jpg": "/static/media/default.ac73263738d478a77cb5.jpg",
+    "static/media/cooking2.jpg": "/static/media/cooking2.d23340062ff4bea69597.jpg",
+    "static/media/football2.jpg": "/static/media/football2.d170057335cedd03aefd.jpg",
+    "static/media/coding3.jpg": "/static/media/coding3.26bcfaeee737594bdf74.jpg",
+    "static/media/headline1.jpg": "/static/media/headline1.bd4d4b18189439e575c2.jpg",
+    "static/media/coding5.jpg": "/static/media/coding5.ab5b296c73e5e62a759c.jpg",
+    "static/media/coding1.jpg": "/static/media/coding1.1dc8fa83a5a20233112a.jpg",
+    "static/media/coding2.jpg": "/static/media/coding2.c3dcb67cc9b8e5b53b63.jpg",
+    "static/media/cooking5.jpg": "/static/media/cooking5.be7a350f43002f3c57f8.jpg",
+    "static/media/coding6.jpg": "/static/media/coding6.96fbfc0a0b55be92ffc2.jpg",
+    "static/media/error.png": "/static/media/error.2e7cb0636433e753e3cd.png",
+    "static/media/blankuser.png": "/static/media/blankuser.fe4e34ef96d634f65a8f.png",
+    "index.html": "/index.html",
+    "main.ea7755db.css.map": "/static/css/main.ea7755db.css.map",
+    "main.6b02459e.js.map": "/static/js/main.6b02459e.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.ea7755db.css",
+    "static/js/main.6b02459e.js"
+  ]
+}
