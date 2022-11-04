@@ -30,11 +30,12 @@ const MainPage = ({setCurrTopic}) => {
             setNoOfPages(data.NumberOfPages)
             setLoading(false)
         }).catch(err => {
+            setLoading(false)
             setErrorMsg({ status: err.response.status, msg:err.response.data.msg, method:'getting'})
         })
     }, [topic, searchParams])
 
-    if(errorMsg) return <Error errorMsg={errorMsg}/>
+    if(errorMsg) return 
     if(isLoading) return<Loading/>
     return (
         <main id='mainPage' className='flex-col articles'>

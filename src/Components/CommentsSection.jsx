@@ -27,6 +27,7 @@ const CommentsSection = ({id}) => {
             setIsLoading(false)
         }).catch(err => {
             setGetErrorMsg({ status: err.response.status, msg:err.response.data.msg, method:'getting'})
+            setIsLoading(false)
         })
     }, [isClicked])
 

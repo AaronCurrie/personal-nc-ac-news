@@ -28,6 +28,7 @@ const SingleArticle = ({setCurrTopic}) => {
             setIsLoading(false)
         }).catch(err => {
             setErrorMsg({ status: err.response.status, msg:err.response.data.msg, method:'getting'})
+            setIsLoading(false)
         })
     }, [article_id])
     
