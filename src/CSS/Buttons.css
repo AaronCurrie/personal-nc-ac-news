@@ -67,6 +67,7 @@
   .delete {
     border: 2px solid black;
     font-size: 0.8rem;
+    font-weight: bold;
     width: fit-content;
     gap: 5px;
     padding: 3px;

@@ -4,11 +4,13 @@ import { formatDate } from '../utils/utils'
 import { getUserByUserName } from '../utils/api'
 
 import Loading from './Patterns/Loading'
+import Error from './Patterns/PostError'
 
 const Author = ({created_at, articleAuthor}) => {
 
     const [author, setAuthor] = useState({})
     const [isLoading, setIsLoading] = useState(true)
+    const [errorMsg, setErrorMsg] = useState(null)
 
     useEffect(() => {
         setIsLoading(true)
@@ -16,10 +18,13 @@ const Author = ({created_at, articleAuthor}) => {
         .then(({user}) => {
             setAuthor(user)     
             setIsLoading(false)
+        }).catch(err => {
+            setErrorMsg({ status: err.response.status, msg:err.response.data.msg, method:'getting'})
+            setIsLoading(false)
         })
     }, [])
 
-
+    if(errorMsg) return <Error errorMsg={errorMsg}/>
     if(isLoading) return <Loading/>
     return (
         <aside className='flex-col author'>

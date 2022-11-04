@@ -17,12 +17,16 @@ const CommentsSection = ({id}) => {
     const [postFailed, setPostFailed] = useState(false)
     const [postSuccess, setPostSuccess] = useState(false)
     const [errorMsg, setErrorMsg] = useState(null)
+    const [getErrorMsg, setGetErrorMsg] = useState(null)
 
     useEffect(() => {
         setIsLoading(true) 
         getArticleComments(id, limit).then((data) => {
             setComments(data.comments)
             setTotalComments(data.total_count)
+            setIsLoading(false)
+        }).catch(err => {
+            setGetErrorMsg({ status: err.response.status, msg:err.response.data.msg, method:'getting'})
             setIsLoading(false)
         })
     }, [isClicked])
@@ -32,6 +36,8 @@ const CommentsSection = ({id}) => {
             setComments(data.comments)
             setTotalComments(data.total_count)
             setPostSuccess(false)
+        }).catch(err => {
+            setGetErrorMsg({ status: err.response.status, msg:err.response.data.msg, method:'getting'})
         })
     }, [postSuccess])
 
@@ -45,13 +51,14 @@ const CommentsSection = ({id}) => {
         setIsClicked(false)
     }
 
+    if(getErrorMsg) return <Error errorMsg={getErrorMsg}/>
     if(isLoading) return <Loading/>
     return (
         <section className="comment-section flex-col">
             <AddComment setErrorMsg={setErrorMsg} setPostSuccess={setPostSuccess} setPostFailed={setPostFailed} setComments={setComments} id={id}/>
             <ul className="comment-list flex-col">
                 {comments.map(comment => {
-                    return <Comment key={comment.comment_id} postFailed={postFailed} setComments={setComments} comment={ comment }/>}
+                    return <Comment errorMsg={errorMsg} setErrorMsg={setErrorMsg} key={comment.comment_id} postFailed={postFailed} setComments={setComments} comment={ comment }/>}
                 )}
             </ul>
             <button onClick={() => handleMoreCLick()} className={!isClicked? "load-button" : 'hidden'}>Load More</button>

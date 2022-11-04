@@ -31,8 +31,7 @@ const AddComment = ({id, setPostSuccess, setComments, setPostFailed, setErrorMsg
             setPostFailed(false)
             setPostSuccess(true)
         }).catch(err => {
-            setErrorMsg({ stautus:err.response.status, msg:err.response.data.msg, mehtod:'post'})
-            console.log(err)
+            setErrorMsg({ status: err.response.status, msg:err.response.data.msg, method:'posting'})
             setPostFailed(true)
             setPostSuccess(false)
         })

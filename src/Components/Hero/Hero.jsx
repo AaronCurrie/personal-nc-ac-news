@@ -1,9 +1,9 @@
 import { useEffect, useState } from "react"
-import { Link } from "react-router-dom"
 import { getAllArticles } from "../../utils/api"
 import Loading from "../Patterns/Loading"
 import BigPicture from "./BigPicture"
 import Headline from "./Headline"
+import Error from '../Patterns/PostError'
 
 import headLine2 from '../../Images/headline1.jpg'
 import headLine1 from '../../Images/headline2.jpg'
@@ -16,6 +16,7 @@ const Hero = () => {
     const [headLines, setHeadLines] = useState(null)
     const [isLoading, setIsLoading] = useState(true)
     const [currentArticle, setCurrentArticle] = useState();
+    const [errorMsg, setErrorMsg] = useState(null)
 
     useEffect(() => {
         setIsLoading(true)
@@ -23,6 +24,9 @@ const Hero = () => {
             setHeadLines(articles)
             setCurrentArticle(articles[0])
             setIsLoading(false)
+        }).catch(err => {
+            setIsLoading(false)
+            setErrorMsg({ status: err.response.status, msg:err.response.data.msg, method:'getting'})
         })
     }, [])
 
@@ -30,6 +34,7 @@ const Hero = () => {
         window.scrollTo(0, 600)
     }
 
+    if(errorMsg) return <Error errorMsg={errorMsg}/>
     if(isLoading) return <Loading/>
     return (
         <section className="hero flex-row">

@@ -86,11 +86,13 @@
     background-color: rgb(248, 248, 248);
     padding: 20px;
     box-shadow: 0px 0px 5px 5px rgb(242, 242, 242);
-    gap: 5px;
+    gap: 15px;
   }
 
   .comment-head {
     justify-content: space-between;
+    align-items: center;
+    gap: 5px;
   }
 
   /* add comment */
@@ -174,7 +176,6 @@
     padding: 20px;
     border: none;
     box-shadow: 0px 0px 5px 5px rgb(219, 219, 219);
-
   }
 
   .profile-card figure {

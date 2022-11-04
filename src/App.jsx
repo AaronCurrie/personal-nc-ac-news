@@ -18,7 +18,8 @@ import SingleArticle from './Components/Pages/SingleArticle';
 import Loading from './Components/Patterns/Loading';
 import ProfilePage from './Components/Pages/ProfilePage';
 import LoginPage from './Components/Pages/LoginInPage';
-import Hero from './Components/Hero/Hero'
+import Hero from './Components/Hero/Hero';
+import Error from './Components/Patterns/PostError';
 
 function App() {
 
@@ -27,26 +28,34 @@ function App() {
   const [isLoading, setIsLoading] = useState(true)
   const [userName, setUserName] = useState(null)
   const [userInfo, setUserInfo] = useState(null)
+  const [errorMsg, setErrorMsg] = useState(null)
 
   useEffect(() => {
     setIsLoading(true)
     getAllTopics().then(({topics}) => {
       setTopics(topics)
       setIsLoading(false)
-    })
+    }).catch(err => {
+      setErrorMsg({ status: err.response.status, msg:err.response.data.msg, method:'getting'})
+      setIsLoading(false)
+  })
   }, [])
 
   useEffect(() => {
     if(userName) {
         getUserByUserName(userName).then(({user}) => {
         setUserInfo(user)
-      })
+      }).catch(err => {
+        setErrorMsg({ status: err.response.status, msg:err.response.data.msg, method:'getting'})
+        setIsLoading(false)
+    })
     } else {
       setUserInfo(null)
     }
   }, [userName])
 
   if(isLoading) return <Loading/>
+  if(errorMsg) return <Error errorMsg={errorMsg}/>
   return (
     <UserContext.Provider value={{userName, setUserName}}>
     <div className="App">

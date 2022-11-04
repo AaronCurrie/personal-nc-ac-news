@@ -6,6 +6,7 @@ import { UserContext } from '../Contexts/UserContext'
 
 import blankuser from '../../Images/blankuser.png'
 import Loading from "../Patterns/Loading"
+import Error from '../Patterns/PostError'
 
 const LoginPage = () => {
 
@@ -16,6 +17,7 @@ const LoginPage = () => {
     const [enteredPassword, setEnteredPassword] = useState('')
     const [isValidUser, setIsValidUser] = useState(true)
     const [isValidPassword, setIsValidPassword] = useState(true)
+    const [errorMsg, setErrorMsg] = useState(null)
 
     const [searchParams] = useSearchParams()
     const {from} = Object.fromEntries([...searchParams])
@@ -25,6 +27,10 @@ const LoginPage = () => {
         getUsers().then(({users}) => {
           setUsers(users)
           setIsLoading(false)
+        })
+        .catch(err => {
+            setErrorMsg({ status: err.response.status, msg:err.response.data.msg, method:'getting'})
+            setIsLoading(false)
         })
     }, [userName])
 
@@ -50,7 +56,7 @@ const LoginPage = () => {
     }
 
 
-
+    if(errorMsg) return <Error errorMsg={errorMsg}/>
     if(isLoading) return <Loading/>
     return (
         <main className="profile-page">

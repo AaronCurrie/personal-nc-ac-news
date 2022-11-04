@@ -4,15 +4,16 @@ import { useState, useEffect } from 'react'
 import { getAllArticles } from '../../utils/api'
 
 import ArticlesDisplay from '../ArticlesDisplay'
-import PageNav from '../PageNav'
 import Loading from '../Patterns/Loading'
 import Filter from '../Filter'
+import Error from '../Patterns/PostError'
 
 const MainPage = ({setCurrTopic}) => {
 
     const [articles, setArticles] = useState([])
     const [noOfPages, setNoOfPages] = useState(0)
     const [isLoading, setLoading] = useState(true)
+    const [errorMsg, setErrorMsg] = useState(null)
     
     const {topic} = useParams()
 
@@ -28,14 +29,17 @@ const MainPage = ({setCurrTopic}) => {
             setArticles(data.articles)
             setNoOfPages(data.NumberOfPages)
             setLoading(false)
+        }).catch(err => {
+            setLoading(false)
+            setErrorMsg({ status: err.response.status, msg:err.response.data.msg, method:'getting'})
         })
     }, [topic, searchParams])
 
+    if(errorMsg) return 
     if(isLoading) return<Loading/>
     return (
         <main id='mainPage' className='flex-col articles'>
             <Filter topic={topic} sort={sort_by} order={order} noOfPages={noOfPages} p={p}/>
-            {/* <PageNav topic={topic} p={p} sort={sort_by} order={order} noOfPages={noOfPages}/> */}
             <ArticlesDisplay articles={articles}/>         
         </main>
     )
