@@ -1,0 +1,64 @@
+ /*buttons*/
+ button:disabled {
+    opacity: 0.2;
+    pointer-events: none;
+  }
+ 
+  .load-button {
+    width: 100px;
+    padding: 5px;
+    border-radius: none;
+    background-color: black;
+    color: white;
+    border: 2px black solid;
+    transition: 0.2s linear;
+  }
+
+  .load-button:hover {
+    background-color: white;
+    color: black;
+    border: 2px black solid;
+    cursor: pointer;
+  }
+
+  .signin {
+    border: 2px solid var(--main-red);
+    width: 100px;
+    padding: 5px;
+    color: var(--main-red);
+    transition: 0.2s linear;
+    animation: 0.2s ease-in 0s fade;
+  }
+
+  .signin:hover {
+    background-color: var(--main-red);
+    color: white;
+    border: 2px var(--main-red) solid;
+    cursor: pointer;
+  }
+
+  .login {
+    align-items: center;
+    gap:10px;
+  }
+
+  /*Post button*/
+  .post-button {
+    width: 200px;
+    padding: 5px;
+    border-radius: none;
+    background-color: black;
+    color: white;
+    border: 2px black solid;
+    position: relative;
+    overflow: hidden;
+    justify-content: space-around;
+  }
+
+  .post-button:hover {
+    background-color: white;
+    color: black;
+    border: 2px black solid;
+    cursor: pointer;
+    transition: 0.2s linear;
+  }

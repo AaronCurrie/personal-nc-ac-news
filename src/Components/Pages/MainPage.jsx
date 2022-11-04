@@ -6,6 +6,7 @@ import { getAllArticles } from '../../utils/api'
 import ArticlesDisplay from '../ArticlesDisplay'
 import PageNav from '../PageNav'
 import Loading from '../Patterns/Loading'
+import Filter from '../Filter'
 
 const MainPage = ({setCurrTopic}) => {
 
@@ -16,12 +17,12 @@ const MainPage = ({setCurrTopic}) => {
     const {topic} = useParams()
 
     const [searchParams] = useSearchParams()
-    const {limit, p} = Object.fromEntries([...searchParams])
+    const {limit, p, sort_by, order} = Object.fromEntries([...searchParams])
 
     useEffect(() => {
         setLoading(true)
-        setCurrTopic(topic)
-        getAllArticles(limit, topic, p)
+        setCurrTopic(topic==='all'? null : topic)
+        getAllArticles(limit, topic==='all'? null : topic , p, sort_by, order)
         .then((data) => {
             setArticles(data.articles)
             setNoOfPages(data.NumberOfPages)
@@ -31,9 +32,10 @@ const MainPage = ({setCurrTopic}) => {
 
     if(isLoading) return<Loading/>
     return (
-        <main className='flex-col articles'>
+        <main id='mainPage' className='flex-col articles'>
+            <Filter topic={topic} sort={sort_by} order={order}/>
             <ArticlesDisplay articles={articles}/>
-            <PageNav topic={topic} p={p} noOfPages={noOfPages}/>
+            <PageNav topic={topic} p={p} sort={sort_by} order={order} noOfPages={noOfPages}/>
         </main>
     )
 }

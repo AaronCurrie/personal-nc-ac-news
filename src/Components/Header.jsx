@@ -18,7 +18,7 @@ const Header = ({topics, currTopic, userInfo}) => {
                 <div className='flex-row nav-symbols'>
                 <Link to={userInfo? `/user/${userInfo.username}` : '/user/login'}><img className='nav-user' src={userInfo? userInfo.avatar_url : blankUser}/></Link>
                 <MobileMenu>
-                    <Link to='' className={!currTopic? 'active' : ''}>All</Link>
+                    <Link to='/all' className={!currTopic? 'active' : ''}>All</Link>
                     {topics.map(element => {
                         return <Link to={`/${element.slug}`} key={element.slug} className={element.slug === currTopic? 'active' : ''}>{element.slug}</Link>
                     })}
