@@ -81,6 +81,7 @@ nav {
   margin-top: 5px;
   padding: 0.1px;
   transition: 0.2s linear;
+  object-fit: contain;
 }
 
 .nav-user:hover {

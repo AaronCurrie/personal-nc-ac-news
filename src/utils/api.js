@@ -65,3 +65,10 @@ export function postNewComment(id, body, username) {
         return data
     })
 } 
+
+export function deleteComment(id) {
+    console.log(id)
+    return api.delete(`/comments/${id}`).then(data => {
+        return data.status
+    })
+}
