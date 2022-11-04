@@ -4,7 +4,7 @@ import { UserContext } from './Contexts/UserContext'
 
 import { postNewComment } from '../utils/api'
 
-const AddComment = ({id, setPostSuccess, setComments, setPostFailed}) => {
+const AddComment = ({id, setPostSuccess, setComments, setPostFailed, setErrorMsg}) => {
 
     const [newComment, setNewComment] =useState('')
     const [error, setError] = useState(false)
@@ -31,6 +31,8 @@ const AddComment = ({id, setPostSuccess, setComments, setPostFailed}) => {
             setPostFailed(false)
             setPostSuccess(true)
         }).catch(err => {
+            setErrorMsg({ stautus:err.response.status, msg:err.response.data.msg, mehtod:'post'})
+            console.log(err)
             setPostFailed(true)
             setPostSuccess(false)
         })

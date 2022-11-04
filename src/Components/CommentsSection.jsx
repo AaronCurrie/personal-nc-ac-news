@@ -5,7 +5,7 @@ import { getArticleComments } from "../utils/api"
 import Loading from './Patterns/Loading'
 import Comment from './Comment'
 import AddComment from "./AddComment"
-import Error from './Patterns/Error'
+import Error from './Patterns/PostError'
 
 const CommentsSection = ({id}) => {
 
@@ -16,6 +16,7 @@ const CommentsSection = ({id}) => {
     const [isClicked, setIsClicked] = useState(false)
     const [postFailed, setPostFailed] = useState(false)
     const [postSuccess, setPostSuccess] = useState(false)
+    const [errorMsg, setErrorMsg] = useState(null)
 
     useEffect(() => {
         setIsLoading(true) 
@@ -47,7 +48,7 @@ const CommentsSection = ({id}) => {
     if(isLoading) return <Loading/>
     return (
         <section className="comment-section flex-col">
-            <AddComment setPostSuccess={setPostSuccess} setPostFailed={setPostFailed} setComments={setComments} id={id}/>
+            <AddComment setErrorMsg={setErrorMsg} setPostSuccess={setPostSuccess} setPostFailed={setPostFailed} setComments={setComments} id={id}/>
             <ul className="comment-list flex-col">
                 {comments.map(comment => {
                     return <Comment key={comment.comment_id} postFailed={postFailed} setComments={setComments} comment={ comment }/>}

@@ -4,7 +4,7 @@ import { UserContext } from './Contexts/UserContext'
 import CommentVoter from './CommentVoter'
 import DeleteComment from './DeleteComment'
 import Deleting from './Patterns/Deleting'
-import Error from './Patterns/Error'
+import Error from './Patterns/PostError'
 import Posting from './Patterns/Posting'
 
 const Comment = ({comment, setComments, postFailed}) => {
