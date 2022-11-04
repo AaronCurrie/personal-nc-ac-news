@@ -1,6 +1,10 @@
 import './CSS/App.css';
 import './CSS/Components.css'
 import './CSS/Hero.css'
+import './CSS/Cards.css'
+import './CSS/Buttons.css'
+import './CSS/Nav.css'
+import './CSS/AnimationsStates.css'
 
 import { useState, useEffect } from 'react'
 import { Routes, Route} from 'react-router-dom';

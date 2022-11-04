@@ -52,7 +52,6 @@ const LoginPage = () => {
 
     //submit pull request
     //get error handling working on this page
-    //can i turn pointer events off for the link
     //style profile page to show your articles and stuff
     //remove votes from my comments
     //add delete to my comments
