@@ -1,11 +1,12 @@
 # NC-AC-NEWS
-NC-AC-NEWS is a social news aggregation, web content rating, and discussion website.
-NC-AC-NEWS has articles which are divided into topics. Each article has user curated ratings and can be up or down voted using the API. Users can also add comments about an article.
+NC-AC-NEWS is a social news aggregation, web content rating, and discussion website. NC-AC-NEWS has articles which are divided into topics. Each article has user curated ratings and can be up or down voted using the API. Users can also add comments about an article.
 
 I have built this as a front end for a backend-api project I completed previously. The intention was is to mimic the building of a real world front end. Since my api was based around a news site I based a lot of my design decisions on the BBC news website. 
 
 Site Hosted At: https://nc-ac-news-outlet.netlify.app/
+
 Back-end hosted at: https://ac-nc-news-server.herokuapp.com/ 
+
 Back-end repo: https://github.com/AaronCurrie/personal-news-site-api 
 
 ## Technologies Used
