@@ -66,6 +66,14 @@ export function postNewComment(id, body, username) {
     })
 } 
 
+export function postNewArticle(article) {
+    return api.post(`/articles`, article).then(({data}) => {
+        console.log(data)
+        return data
+    })
+} 
+
+
 export function deleteComment(id) {
     return api.delete(`/comments/${id}`).then(data => {
         return data.status

@@ -6,6 +6,7 @@ import { getAllArticles, getUserByUserName } from "../../utils/api"
 import Loading from "../Patterns/Loading"
 import ArticlesDisplay from "../ArticlesDisplay"
 import Error from '../Patterns/PostError'
+import NewArticle from "./NewArticle"
 
 const ProfilePage = () => {
 
@@ -14,13 +15,15 @@ const ProfilePage = () => {
     const [user, setUser] = useState({})
     const [userArticles, setUserArticles] = useState(null)
     const [isLoading, setIsLoading] = useState(true)
-    const [newArticleBody, setArticleBody] = useState('')
     const [writeArticle, setWriteArticle] = useState(false)
     const [errorMsg, setErrorMsg] = useState(null)
+    const [postedNew, setPostedNew] = useState(false)
 
     useEffect(() => {
         setIsLoading(true)
         window.scrollTo(0, 0)
+        setPostedNew(false)
+        setWriteArticle(false)
         getUserByUserName(userName)
         .then(({user}) => {
             setUser(user)     
@@ -32,25 +35,14 @@ const ProfilePage = () => {
             setErrorMsg({ status: err.response.status, msg:err.response.data.msg, method:'getting'})
             setIsLoading(false)
         })
-    }, [])
+    }, [postedNew])
 
     const handleSignOut = () => {
         setUserName(null)
     }
 
-    const handleChange = (event) => {
-        // setNewComment(event.target.value)
-        if(event.target.value === '') {
-            // setError(true)
-        } else {
-            // setError(false)
-        }
-    }
-    //still needs work
-
     const handleClick = () => {
         writeArticle? setWriteArticle(false) : setWriteArticle(true)
-        
     }
 
     if(errorMsg) return <Error errorMsg={errorMsg}/>
@@ -68,14 +60,9 @@ const ProfilePage = () => {
                             <button onClick={() => handleClick()} className="post-button flex-row"><span className="text-arrows">Write New Article</span> <div className={writeArticle? "up-arrow" : "down-arrow"}>↓</div></button>
                             <Link className="signin" onClick={() => handleSignOut()} to='/'>Sign Out</Link> 
                         </div>
-
                     </div>   
             </div>
-            <form className={writeArticle? 'flex-col new-article-form' : 'hidden'}>
-                <h3>Write New Article</h3>
-                <textarea onChange={(event) => handleChange(event)} className= 'add-comment' aria-label='add article body' id='newArticleBody' name='newArticleBody' rows='4' cols='50' placeholder="New Article Body..."></textarea>
-                <button type='submit' disabled={newArticleBody==='' || !userName} className='load-button'>Post</button>
-            </form>
+            <NewArticle setPostedNew={setPostedNew} userName={userName} writeArticle={writeArticle}/>
             <div>
                 <h3>Your Articles</h3>
                 <ArticlesDisplay articles={userArticles}/>

@@ -14,7 +14,6 @@ const ArticleCard = ({article}) => {
                         <p>author: {article.author}</p>
                         <p>{article.topic}</p>
                     </div>
-
                 </div>
                 <div className="flex-row likes-votes">
                     <p>	&#129293; {article.votes}</p>

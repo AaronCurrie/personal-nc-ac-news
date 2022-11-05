@@ -86,7 +86,7 @@
     border: none;
   }
 
-  .filter fieldset label select {
+  .filter fieldset label select:hover {
     cursor: pointer;
   }
 
