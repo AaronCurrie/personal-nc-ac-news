@@ -54,12 +54,13 @@ function App() {
     }
   }, [userName])
 
+
   if(isLoading) return <Loading/>
   if(errorMsg) return <Error errorMsg={errorMsg}/>
   return (
     <UserContext.Provider value={{userName, setUserName}}>
     <div className="App">
-      <Header topics={ topics } userInfo = {userInfo} currTopic={currTopic}/>
+      <Header topics={ topics } userInfo = {userInfo} setCurrTopic={setCurrTopic} currTopic={currTopic}/>
         <Routes>
           <Route path='/' element ={<><Hero/><MainPage setTopics={setTopics} setCurrTopic={setCurrTopic}/></>}/>
           <Route path='/:topic' element={<MainPage setTopics={setTopics} setCurrTopic={setCurrTopic}/>}/>

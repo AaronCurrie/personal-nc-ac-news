@@ -5,18 +5,22 @@ import blankUser from '../Images/blankuser.png'
 import MobileMenu from './MobileMenu'
 
 
-const Header = ({topics, currTopic, userInfo}) => {
+const Header = ({topics, currTopic, userInfo, setCurrTopic}) => {
 
     useEffect(() => {
 
     }, [userInfo])
+
+    const handleClick = () => {
+        setCurrTopic('login')
+      }
 
     return (
         <header className='flex-col'>
             <nav className="flex-row nav-container">
                 <Link to='/' className='logo'><h1><span className='highlight'>AC</span>NC <span className='thin'>NEWS</span></h1></Link>
                 <div className='flex-row nav-symbols'>
-                <Link to={userInfo? `/user/${userInfo.username}` : '/user/login'}><img className='nav-user' src={userInfo? userInfo.avatar_url : blankUser}/></Link>
+                <Link onClick={handleClick} to={userInfo? `/user/${userInfo.username}` : '/user/login'}><img className='nav-user' src={userInfo? userInfo.avatar_url : blankUser}/></Link>
                 <MobileMenu>
                     <Link to='/all' className={!currTopic? 'active' : ''}>All</Link>
                     {topics.map(element => {
