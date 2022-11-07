@@ -20,7 +20,7 @@ const Hero = () => {
 
     useEffect(() => {
         setIsLoading(true)
-        getAllArticles(3, '', 2).then(({articles}) => {
+        getAllArticles(3, '', 1, 'votes').then(({articles}) => {
             setHeadLines(articles)
             setCurrentArticle(articles[0])
             setIsLoading(false)

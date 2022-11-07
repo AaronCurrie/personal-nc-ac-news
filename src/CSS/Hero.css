@@ -38,6 +38,7 @@
     padding: 10px;
     background-color: black;
     color: white;
+    text-transform: capitalize;
 }
 
 .headlines {
@@ -62,6 +63,7 @@
     padding: 20px;
     font-size: 14px;
     transition: 0.2s linear;
+    text-transform: capitalize;
 }
 
 .headline:hover {
